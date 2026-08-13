@@ -44,79 +44,39 @@
 
 ---
 
-## Linear Status, Branching & GitHub Protocol (D4, D5, D6)
+## The Scope Guard (Critical Workflow Rule)
 
-### Status Lifecycle (D4)
-
-```text
-Backlog  →  Todo  →  In Progress  →  In Review  →  Done
-```
-
-- **`Backlog`**: Unscheduled or future milestone issues.
-- **`Todo`**: Ready to start. Prerequisites met; ticket is in the active cycle.
-- **`In Progress`**: Actively being implemented. Exactly 1 leaf task active at a time.
-- **`In Review`**: Implementation finished; automated test suite, builds, and code review in progress.
-- **`Done`**: Definition of Done satisfied with verifiable proof. **Do not move to Done merely because code was written.**
-- **`Canceled`**: Used strictly if an issue is genuinely cancelled.
-
-### Issue → Git Branch Protocol (D5)
-
-Every implementation issue corresponds strictly 1:1 with its Linear-generated branch:
-
-```text
-Linear Issue (e.g. CV-6) ↔ Git Branch (boiihertz/cv-6-scaffold-nextjs-application-with-bun) ↔ Pull Request
-```
-
-### End-to-End Development Cycle (D6)
-
-**Never work directly on `main` for feature implementation.**
-
-```text
-Linear Issue (Todo)
-      ↓
-Create/Use Branch (In Progress)
-      ↓
-Implement Changes
-      ↓
-Local Validation (bun run dev, bun run build, tests)
-      ↓
-Commit
-      ↓
-Push
-      ↓
-GitHub PR (In Review)
-      ↓
-GitHub Actions / CI Quality Gate
-      ↓
-Review & Approval
-      ↓
-Merge to main
-      ↓
-Linear Issue (Done)
-```
-
-### Pull Request Convention (D7)
-
-- **Title**: `<type>(CV-<id>): <imperative summary>` (e.g. `feat(CV-6): scaffold Next.js application with Bun`)
-- **Body**: Must contain `## Summary`, `## Linear` (`CV-XX`), `## Changes`, `## Validation` (`bun run typecheck`, `bun run lint`, `bun run build`), and `## Notes`.
+> [!IMPORTANT]
+> **Antigravity works strictly against the active Linear issue and must not silently expand its scope.**
+>
+> If any work, refactoring, enhancement, or unmodeled requirement outside the active issue is discovered during implementation:
+> 1. **Do NOT silently implement it.**
+> 2. **Do NOT bundle it into the current branch/PR.**
+> 3. Document the finding and create a dedicated Linear issue in the backlog/active cycle.
+> 4. Keep the active issue focused solely on its certified Definition of Done and Acceptance Criteria.
 
 ---
 
-## Technical Stack & Conventions
+## Core Engineering & Architectural Principles
 
-- **Development Environment**: Windows 11 + Google Antigravity IDE
-- **Runtime & Package Manager**: Bun
-- **Version Control**: Git + GitHub (Repository: `CodeGrogu/portfolio`)
-- **Framework**: Next.js 16 Active LTS + React 19 + TypeScript (App Router)
-- **Styling**: Tailwind CSS
-- **3D / Graphics**: Three.js (`three/webgpu`) + React Three Fiber + Drei (WebGPU-first with WebGL fallback)
-- **Asset Pipeline**: Blender + glTF/GLB (Draco geometry compression & Meshopt texture optimization)
-- **Animation**: GSAP + ScrollTrigger
-- **State Management**: Zustand
-- **Validation**: Zod
-- **Database & ORM**: Neon Serverless PostgreSQL (`@neondatabase/serverless`) + Drizzle ORM (`drizzle-orm/neon-http`)
-- **Deployment & Hosting**: Vercel (Edge & Serverless)
-- **Tracking**: Linear is the source of truth for planning and issues.
+1. **Architecture & Directory Structure**:
+   - `src/app/`: Next.js 16 App Router pages, layouts, and route handlers.
+   - `src/components/`: Modular UI, 3D Canvas, and design system primitives.
+   - `src/lib/`: Database clients (Neon), ORM schemas (Drizzle), validation schemas (Zod), shared utilities.
+   - `src/hooks/`: Reusable React hooks.
+   - `src/types/`: TypeScript definitions.
+   - `src/styles/`: Global CSS and Tailwind design tokens.
+2. **Code Style**: Functional component composition, descriptive variable/function names, zero dead code, strict error handling.
+3. **Bun Usage**: Managed strictly via Bun `v1.3.14+` (`bun install`, `bun run <script>`, `bun test`). Never use `npm`, `npx`, `yarn`, or `pnpm`.
+4. **Next.js Conventions**: Next.js 16 Active LTS + React 19 App Router. Server Components by default; explicit `'use client'` only when state/effects/Canvas hooks are required.
+5. **TypeScript Strictness**: `strict: true`, `noImplicitAny: true`, `strictNullChecks: true`, `noUncheckedIndexedAccess: true`. Zero `any` policy.
+6. **No Unnecessary Dependencies**: Zero bloat. Do not install speculative packages or duplicate utility libraries.
+7. **No Fabricated Requirements**: Adhere strictly to the certified Linear issue scope and acceptance criteria.
+8. **Security Rules**: Zero plaintext secrets, environment variables validated via Zod at startup, rate limiting on mutations, strict input sanitization.
+9. **Git Conventions & No Direct Main Development**: Protected `main` branch. All work goes through `boiihertz/cv-XX-...` feature branches and GitHub PRs.
+10. **Linear Issue Discipline (D4)**: Strict 5-state lifecycle (`Backlog` $\rightarrow$ `Todo` $\rightarrow$ `In Progress` $\rightarrow$ `In Review` $\rightarrow$ `Done`). Exactly 1 active task in progress.
+11. **Testing & Baseline Verification (D9)**: Every task must execute and satisfy `bun install`, `bun run dev`, `bun run typecheck`, `bun run lint`, and `bun run build`.
+12. **Pull Request Protocol (D7)**: Standard PR title `<type>(CV-<id>): <summary>` and 5-section body (`## Summary`, `## Linear`, `## Changes`, `## Validation`, `## Notes`).
 
 ---
 

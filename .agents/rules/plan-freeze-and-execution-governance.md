@@ -99,3 +99,18 @@ CV-6
 ## Notes
 ...
 ```
+
+## 7. Baseline Verification Commands (D9)
+
+Before creating application features, every issue and pull request must execute and verify cleanly against these 5 baseline commands:
+
+```bash
+bun install        # 1. Install & resolve dependencies cleanly
+bun run dev        # 2. Launch development server on localhost:3000
+bun run typecheck  # 3. Strict TypeScript static type check (tsc --noEmit)
+bun run lint       # 4. Lint code for style, errors, and best practices
+bun run build      # 5. Compile optimized production bundle with 0 errors
+```
+
+> [!IMPORTANT]
+> **Evidence Before Assertions**: An issue cannot transition to `Done` unless all applicable verification commands have executed with 0 errors and proof is provided in the completion comment.
