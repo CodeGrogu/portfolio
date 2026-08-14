@@ -27,20 +27,29 @@
 
 ### Active Execution Cycle
 
-- **Cycle Name**: `Foundation — Cycle 1` (Cycle `1`, ID: `e07214a7-bd5b-42e3-83f7-ad5864052297`)
-- **Period**: `2026-08-17` to `2026-08-21` (5 business days)
-- **Scope & Workload**: 4 tasks, 13 story points
+- **Cycle Name**: `Core Experience — Cycle 2` (Cycle `2`, ID: `ce5d940f-0900-4845-b567-d4612e7ff59e`)
+- **Period**: `2026-08-24` to `2026-09-04` (10 business days)
+- **Scope & Workload**: 9 tasks, 37 story points
 - **Execution DAG**:
   ```
-  CV-6: Scaffold Next.js application with Bun (3 pts, Due: 2026-08-17)
-    ↓
-  CV-7: Establish TypeScript, linting, formatting and import conventions (2 pts, Due: 2026-08-18)
-    ↓
-  CV-14: Define environment and secrets strategy (3 pts, Due: 2026-08-19)
-    ↓
-  CV-15: Establish CI quality gate (5 pts, Due: 2026-08-21)
+                 CV-8: Information architecture (3 pts, Due: 2026-08-25)
+                                    ↓
+                 CV-9: Design system foundation (5 pts, Due: 2026-08-28)
+                                    │
+       ┌───────────┬────────────────┼───────────┬──────────────┬──────────────┐
+       ↓           ↓                ↓           ↓              ↓              ↓
+  CV-10 (5 pts)  CV-41 (3 pts)   CV-42 (5 pts)  CV-43 (3 pts)  CV-44 (5 pts)  CV-46 (3 pts)
+  Hero & Nav     Services/About  Showcase       Booking Entry  Mobile Comp    SEO Metadata
+   (2026-08-31)   (2026-09-02)   (2026-09-03)   (2026-09-04)   (2026-09-01)   (2026-09-04)
+
+                 CV-8 (Info Architecture) + CV-9 (Design System)
+                                    ↓
+                 CV-45: Accessibility foundation (5 pts, Due: 2026-09-03)
   ```
-- **Execution Rule**: Sequential execution following the DAG. Do not work on all four tasks simultaneously.
+- **Execution Strategy**:
+  1. Complete the core spine sequentially: `CV-8` $\rightarrow$ `CV-9`.
+  2. With `CV-9` delivered, branch into section implementations (`CV-10`, `CV-41`, `CV-42`, `CV-43`, `CV-44`, `CV-46`) and accessibility (`CV-45`).
+  3. Work on exactly 1 task at a time following the canonical 18-step development lifecycle.
 
 ---
 
