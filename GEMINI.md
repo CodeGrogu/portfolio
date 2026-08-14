@@ -111,7 +111,7 @@
 10. **Linear Issue Discipline (D4)**: Strict 5-state lifecycle (`Backlog` $\rightarrow$ `Todo` $\rightarrow$ `In Progress` $\rightarrow$ `In Review` $\rightarrow$ `Done`). Exactly 1 active task in progress.
 11. **Testing & Pre-Flight Verification (D9)**: Every task must execute and satisfy `bun test` and `bun run validate` (`typecheck && lint && format:check && build`) before committing/pushing.
 12. **GitHub Actions CI Quality Gate**: Automated 5-stage CI workflow (`.github/workflows/ci.yml`) protects `main`. A PR must never be merged with pending/failing checks.
-13. **Pull Request Protocol (D7)**: Standard PR title `<type>(CV-<id>): <summary>` and 5-section body (`## Summary`, `## Linear`, `## Changes`, `## Validation`, `## Notes`).
+13. **Pull Request Protocol (D7 & Literal Markdown)**: Standard PR title `<type>(CV-<id>): <summary>` and 5-section body (`## Summary`, `## Linear`, `## Changes`, `## Validation`, `## Notes`). Always format PR bodies as clean, unescaped literal Markdown (real newlines and backticks, `--body-file` convention; zero escaped `\n` or `\` artifacts).
 
 ---
 
