@@ -55,7 +55,7 @@ export function ProjectsFilterGrid({
               aria-controls={`projects-panel-${option.id}`}
               onClick={() => setSelectedCategory(option.id)}
               className={cn(
-                'inline-flex min-h-[40px] items-center gap-2 rounded-xl px-4 py-2 text-xs font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 touch-manipulation',
+                'inline-flex min-h-[40px] touch-manipulation items-center gap-2 rounded-xl px-4 py-2 text-xs font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400',
                 isSelected
                   ? 'bg-emerald-500 text-zinc-950 shadow-md shadow-emerald-500/20'
                   : 'border border-zinc-800 bg-zinc-900/60 text-zinc-400 hover:border-zinc-700 hover:text-white',
@@ -64,7 +64,7 @@ export function ProjectsFilterGrid({
               <span>{option.label}</span>
               <span
                 className={cn(
-                  'rounded-full px-1.5 py-0.2 font-mono text-[10px]',
+                  'py-0.2 rounded-full px-1.5 font-mono text-[10px]',
                   isSelected ? 'bg-zinc-950/20 text-zinc-950' : 'bg-zinc-800 text-zinc-400',
                 )}
               >
