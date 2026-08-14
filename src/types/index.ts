@@ -19,4 +19,6 @@ export interface ProjectMetadata {
   githubUrl?: string;
 }
 
+export * from './navigation';
 export * from './services';
+export * from './projects';

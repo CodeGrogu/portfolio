@@ -83,14 +83,14 @@ describe('Mobile Composability & Responsive Experience (CV-44)', () => {
 
   it('should provide responsive mobile wrapping on action buttons across page layouts', () => {
     const aboutContent = fs.readFileSync(path.join(rootDir, 'src/app/about/page.tsx'), 'utf-8');
-    const projectsDetailContent = fs.readFileSync(
-      path.join(rootDir, 'src/app/projects/[slug]/page.tsx'),
+    const caseStudyContent = fs.readFileSync(
+      path.join(rootDir, 'src/components/projects/case-study-view.tsx'),
       'utf-8',
     );
     const bookContent = fs.readFileSync(path.join(rootDir, 'src/app/book/page.tsx'), 'utf-8');
 
     expect(aboutContent).toContain('flex flex-col items-stretch');
-    expect(projectsDetailContent).toContain('flex flex-col items-stretch');
+    expect(caseStudyContent).toContain('flex flex-col items-stretch');
     expect(bookContent).toContain('min-h-[44px]');
   });
 

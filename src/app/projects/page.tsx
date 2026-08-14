@@ -1,87 +1,57 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { PROJECTS } from '@/lib/projects-data';
+import { ProjectsFilterGrid } from '@/components/projects';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 import { ROUTES } from '@/lib/routes';
 
 export const metadata: Metadata = {
-  title: 'Projects - CodeGrogu Portfolio',
+  title: 'Engineering Projects & Case Studies - CodeGrogu Portfolio',
   description:
-    'Selected Web3D, full-stack, and mobile engineering case studies and technical architectures.',
+    'Deep-dive technical case studies covering WebGPU graphics pipelines, transactional booking systems, audio reactive shaders, and cloud databases.',
 };
 
 export default function ProjectsPage() {
-  const sampleProjects = [
-    {
-      slug: 'spatial-canvas-engine',
-      title: 'Spatial Canvas Engine',
-      description: 'WebGPU-first real-time 3D asset configurator and procedural shader system.',
-      tags: ['WebGPU', 'Three.js', 'React 19', 'TypeScript'],
-    },
-    {
-      slug: 'neon-drizzle-booking-core',
-      title: 'Transactional Booking Engine',
-      description:
-        'Atomic scheduling platform built with Neon PostgreSQL, Drizzle ORM, and Upstash Redis rate limiting.',
-      tags: ['Next.js 16', 'Neon DB', 'Drizzle ORM', 'Zod'],
-    },
-    {
-      slug: 'ambient-audio-visualizer',
-      title: 'Ambient Audio Visualizer',
-      description:
-        'Interactive particle audio reactive WebGL experience with custom GLSL frequency bloom shaders.',
-      tags: ['WebGL 2', 'GLSL Shaders', 'Web Audio API', 'R3F'],
-    },
-  ];
-
   return (
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-20 lg:px-8">
-      <div className="max-w-2xl">
-        <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+      {/* Header */}
+      <div className="max-w-3xl">
+        <div className="inline-flex items-center gap-2">
+          <Badge variant="emerald" withPulse className="text-xs font-semibold">
+            Case Studies
+          </Badge>
+        </div>
+        <h1 className="mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
           Featured Engineering Projects
         </h1>
-        <p className="mt-4 text-base leading-relaxed text-zinc-400">
-          A showcase of high-fidelity 3D graphics, full-stack web applications, and architectural
-          case studies.
+        <p className="mt-4 text-base leading-relaxed text-zinc-400 sm:text-lg">
+          A showcase of high-fidelity 3D graphics, full-stack web applications, real-time shaders,
+          and architectural case studies engineered for performance and scalability.
         </p>
       </div>
 
-      <div className="mt-10 grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {sampleProjects.map((project) => (
-          <article
-            key={project.slug}
-            className="flex flex-col justify-between rounded-xl border border-zinc-800 bg-zinc-900/40 p-6 transition-all hover:border-zinc-700 hover:bg-zinc-900/70"
-          >
-            <div>
-              <div className="flex flex-wrap gap-2">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-md bg-zinc-800 px-2.5 py-1 text-xs font-medium text-emerald-400"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              <h2 className="mt-4 text-xl font-semibold text-white">
-                <Link
-                  href={ROUTES.PROJECT_DETAIL(project.slug)}
-                  className="touch-manipulation hover:text-emerald-400"
-                >
-                  {project.title}
-                </Link>
-              </h2>
-              <p className="mt-2 text-sm leading-relaxed text-zinc-400">{project.description}</p>
-            </div>
+      {/* Filterable Projects Grid */}
+      <div className="mt-12 sm:mt-16">
+        <ProjectsFilterGrid projects={PROJECTS} />
+      </div>
 
-            <div className="mt-6 border-t border-zinc-800 pt-4">
-              <Link
-                href={ROUTES.PROJECT_DETAIL(project.slug)}
-                className="inline-flex min-h-[44px] touch-manipulation items-center gap-1 text-sm font-semibold text-emerald-400 hover:text-emerald-300"
-              >
-                Read Case Study &rarr;
-              </Link>
-            </div>
-          </article>
-        ))}
+      {/* Discovery CTA Banner */}
+      <div className="mt-16 rounded-3xl border border-emerald-500/20 bg-emerald-500/5 p-8 text-center backdrop-blur-md sm:p-12">
+        <h2 className="text-2xl font-bold text-white sm:text-3xl">
+          Have an ambitious technical build in mind?
+        </h2>
+        <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-zinc-400">
+          Let’s discuss your technical architecture, requirements, and delivery milestones.
+        </p>
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
+          <Button asChild variant="glow" size="lg">
+            <Link href={ROUTES.BOOK}>Schedule Discovery Call</Link>
+          </Button>
+          <Button asChild variant="outline" size="lg">
+            <Link href={ROUTES.SERVICES}>View Service Offerings</Link>
+          </Button>
+        </div>
       </div>
     </div>
   );
