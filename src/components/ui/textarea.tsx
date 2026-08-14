@@ -45,8 +45,8 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
             {error}
           </p>
         )}
-        {!error && helperText && (
-          <p id={helperId} className="text-xs text-zinc-500">
+        {helperText && !error && (
+          <p id={helperId} className="text-xs text-zinc-400">
             {helperText}
           </p>
         )}

@@ -47,13 +47,13 @@ export function Footer() {
               </span>
               Available for select Q3/Q4 contracts & consulting
             </div>
-            <p className="mt-3 text-xs text-zinc-500">
+            <p className="mt-3 text-xs text-zinc-400">
               Powered by Next.js 16, React 19, Three.js WebGPU & Bun.
             </p>
           </div>
         </div>
 
-        <div className="mt-12 border-t border-zinc-900 pt-6 text-center text-xs text-zinc-500">
+        <div className="mt-12 border-t border-zinc-900 pt-6 text-center text-xs text-zinc-400">
           &copy; {currentYear} CodeGrogu. All rights reserved.
         </div>
       </div>
