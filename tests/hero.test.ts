@@ -18,10 +18,11 @@ describe('Hero Section Component & Architecture Teaser (CV-10)', () => {
     expect(heroCode).toContain('Available for Q3/Q4 Projects');
   });
 
-  it('should render HeroSection on the home page', async () => {
+  it('should render HeroSection and ServicesSection on the home page', async () => {
     const pageCode = await Bun.file('src/app/page.tsx').text();
     expect(pageCode).toContain('HeroSection');
-    expect(pageCode).toContain('Precision Technical Disciplines');
+    expect(pageCode).toContain('ServicesSection');
+    expect(pageCode).toContain('AboutSection');
     expect(pageCode).toContain('Recent Engineering Milestones');
   });
 });

@@ -11,11 +11,11 @@ export function Footer() {
           <div>
             <Link
               href={ROUTES.HOME}
-              className="text-lg font-bold tracking-tight text-white hover:text-emerald-400"
+              className="inline-flex min-h-[44px] items-center text-lg font-bold tracking-tight text-white hover:text-emerald-400 touch-manipulation"
             >
               CodeGrogu<span className="text-emerald-500">.</span>
             </Link>
-            <p className="mt-3 text-sm text-zinc-400">
+            <p className="mt-2 text-sm text-zinc-400">
               Interactive Web3D architectures, high-performance web engineering, and resilient
               full-stack systems.
             </p>
@@ -25,10 +25,13 @@ export function Footer() {
             <h3 className="text-xs font-semibold tracking-wider text-zinc-200 uppercase">
               Navigation
             </h3>
-            <ul className="mt-4 space-y-2 text-sm">
+            <ul className="mt-4 space-y-1 text-sm">
               {NAV_LINKS.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="transition-colors hover:text-emerald-400">
+                  <Link
+                    href={item.href}
+                    className="inline-flex min-h-[36px] items-center py-1 transition-colors hover:text-emerald-400 touch-manipulation"
+                  >
                     {item.title}
                   </Link>
                 </li>

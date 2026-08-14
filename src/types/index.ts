@@ -18,3 +18,5 @@ export interface ProjectMetadata {
   demoUrl?: string;
   githubUrl?: string;
 }
+
+export * from './services';
