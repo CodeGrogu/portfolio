@@ -9,7 +9,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'CodeGrogu — Interactive Portfolio & Web3D Systems',
+  title: 'CodeGrogu - Interactive Portfolio & Web3D Systems',
   description: 'Full-Stack Developer, 3D Web Graphics Specialist, and Software Architect.',
   keywords: [
     'CodeGrogu',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'CodeGrogu' }],
   metadataBase: new URL('https://codegrogu.com'),
   openGraph: {
-    title: 'CodeGrogu — Interactive Portfolio & Web3D Systems',
+    title: 'CodeGrogu - Interactive Portfolio & Web3D Systems',
     description:
       'High-performance interactive web systems, WebGPU graphics, and full-stack software architecture.',
     url: 'https://codegrogu.com',

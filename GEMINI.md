@@ -10,24 +10,24 @@
 
 ### Milestones & Certified Workload (58 Tasks, 215 Story Points)
 
-1. **Foundation** (`26b61743-861f-4a1c-9278-65911090ec3a`) — Target: 2026-08-21 (4 tasks, 13 pts)
+1. **Foundation** (`26b61743-861f-4a1c-9278-65911090ec3a`) - Target: 2026-08-21 (4 tasks, 13 pts)
    - Repository, environment, project conventions, application scaffold, secrets & CI
-2. **Core Experience** (`ad3f3f93-4645-4640-9d70-ae58972a317c`) — Target: 2026-09-04 (9 tasks, 37 pts)
+2. **Core Experience** (`ad3f3f93-4645-4640-9d70-ae58972a317c`) - Target: 2026-09-04 (9 tasks, 37 pts)
    - UI, information architecture, design tokens, hero, services, project showcase, a11y foundation
-3. **Web3D** (`f55343ae-1696-4917-bd33-aaa6ce8b57e6`) — Target: 2026-09-25 (10 tasks, 41 pts)
+3. **Web3D** (`f55343ae-1696-4917-bd33-aaa6ce8b57e6`) - Target: 2026-09-25 (10 tasks, 41 pts)
    - WebGPU-first Three.js, WebGL fallback, R3F canvas, Draco/Meshopt assets, quality profiles, reduced motion
-4. **Full-Stack Systems** (`50b5d985-c0c1-42f4-8348-3c6a28053e14`) — Target: 2026-10-16 (11 tasks, 43 pts)
+4. **Full-Stack Systems** (`50b5d985-c0c1-42f4-8348-3c6a28053e14`) - Target: 2026-10-16 (11 tasks, 43 pts)
    - Dynamic catalogue, Neon PostgreSQL, Drizzle ORM, Zod schemas, transactional booking engine, rate limiting
-5. **Production Hardening** (`547e687f-bcb1-4fc0-bf53-3d083240800c`) — Target: 2026-10-30 (17 tasks, 61 pts)
+5. **Production Hardening** (`547e687f-bcb1-4fc0-bf53-3d083240800c`) - Target: 2026-10-30 (17 tasks, 61 pts)
    - Core Web Vitals, 3D memory profiling, dependency/API security review, cross-browser matrix, testing suites
-6. **Launch & Hypercare** (`48af0f67-2f1e-4230-8683-8c429d5e392e`) — Target: 2026-11-13 (7 tasks, 20 pts)
+6. **Launch & Hypercare** (`48af0f67-2f1e-4230-8683-8c429d5e392e`) - Target: 2026-11-13 (7 tasks, 20 pts)
    - Production deployment on Vercel, domain configuration for codegrogu.com, release verification & 72h hypercare
 
 ---
 
 ### Active Execution Cycle
 
-- **Cycle Name**: `Core Experience — Cycle 2` (Cycle `2`, ID: `ce5d940f-0900-4845-b567-d4612e7ff59e`)
+- **Cycle Name**: `Core Experience - Cycle 2` (Cycle `2`, ID: `ce5d940f-0900-4845-b567-d4612e7ff59e`)
 - **Period**: `2026-08-24` to `2026-09-04` (10 business days)
 - **Scope & Workload**: 9 tasks, 37 story points
 - **Execution DAG**:
