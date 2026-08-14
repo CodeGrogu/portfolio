@@ -100,8 +100,9 @@
 8. **Security Rules**: Zero plaintext secrets, environment variables validated via Zod at startup, rate limiting on mutations, strict input sanitization.
 9. **Git Conventions & No Direct Main Development**: Protected `main` branch. All work goes through `boiihertz/cv-XX-...` feature branches and GitHub PRs.
 10. **Linear Issue Discipline (D4)**: Strict 5-state lifecycle (`Backlog` $\rightarrow$ `Todo` $\rightarrow$ `In Progress` $\rightarrow$ `In Review` $\rightarrow$ `Done`). Exactly 1 active task in progress.
-11. **Testing & Baseline Verification (D9)**: Every task must execute and satisfy `bun install`, `bun run dev`, `bun run typecheck`, `bun run lint`, and `bun run build`.
-12. **Pull Request Protocol (D7)**: Standard PR title `<type>(CV-<id>): <summary>` and 5-section body (`## Summary`, `## Linear`, `## Changes`, `## Validation`, `## Notes`).
+11. **Testing & Pre-Flight Verification (D9)**: Every task must execute and satisfy `bun test` and `bun run validate` (`typecheck && lint && format:check && build`) before committing/pushing.
+12. **GitHub Actions CI Quality Gate**: Automated 5-stage CI workflow (`.github/workflows/ci.yml`) protects `main`. A PR must never be merged with pending/failing checks.
+13. **Pull Request Protocol (D7)**: Standard PR title `<type>(CV-<id>): <summary>` and 5-section body (`## Summary`, `## Linear`, `## Changes`, `## Validation`, `## Notes`).
 
 ---
 
