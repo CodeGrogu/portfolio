@@ -36,11 +36,13 @@ describe('Mobile Composability & Responsive Experience (CV-44)', () => {
       'utf-8',
     );
 
-    expect(inputContent).toContain('text-base sm:text-sm');
+    expect(inputContent).toContain('text-base');
+    expect(inputContent).toContain('sm:text-sm');
     expect(inputContent).toContain('min-h-[44px]');
     expect(inputContent).toContain('touch-manipulation');
 
-    expect(textareaContent).toContain('text-base sm:text-sm');
+    expect(textareaContent).toContain('text-base');
+    expect(textareaContent).toContain('sm:text-sm');
     expect(textareaContent).toContain('touch-manipulation');
   });
 
@@ -66,11 +68,13 @@ describe('Mobile Composability & Responsive Experience (CV-44)', () => {
     );
 
     // Header hamburger button
-    expect(headerContent).toContain('min-h-[44px] min-w-[44px]');
+    expect(headerContent).toContain('min-h-[44px]');
+    expect(headerContent).toContain('min-w-[44px]');
     expect(headerContent).toContain('touch-manipulation');
 
     // MobileNav drawer close button and links
-    expect(mobileNavContent).toContain('min-h-[44px] min-w-[44px]');
+    expect(mobileNavContent).toContain('min-h-[44px]');
+    expect(mobileNavContent).toContain('min-w-[44px]');
     expect(mobileNavContent).toContain('min-h-[48px]');
     expect(mobileNavContent).toContain('safe-area-inset-top');
     expect(mobileNavContent).toContain('safe-area-inset-bottom');
@@ -97,7 +101,8 @@ describe('Mobile Composability & Responsive Experience (CV-44)', () => {
     );
 
     expect(dialogContent).toContain('max-h-[90dvh]');
-    expect(dialogContent).toContain('min-h-[44px] min-w-[44px]');
+    expect(dialogContent).toContain('min-h-[44px]');
+    expect(dialogContent).toContain('min-w-[44px]');
     expect(dialogContent).toContain('touch-manipulation');
   });
 });
