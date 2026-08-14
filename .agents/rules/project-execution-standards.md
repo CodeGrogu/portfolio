@@ -122,8 +122,8 @@ This document defines the strict, certified engineering standards for the **Code
 - **Linear Branch Alignment**: Work strictly on the branch named in the Linear issue:
   `boiihertz/cv-<id>-<slug>`
 - **Pull Requests (D7)**: Every PR must use the standard template linking `CV-<id>`.
-- **Literal Markdown in PR Descriptions (Critical Tooling Rule)**:
-  Always construct PR bodies using unescaped, literal multiline Markdown (with real newlines and unescaped backticks). Never pass JSON-escaped string artifacts like `\n` or `\` backticks. When using `gh pr create` or `gh pr edit`, use `--body-file <file>` or multiline heredocs to ensure GitHub renders genuine Markdown.
+- **Literal Markdown in PR Descriptions (Mandatory --body-file Convention)**:
+  Always construct PR bodies using unescaped, literal multiline Markdown (with real newlines and unescaped backticks). **NEVER** pass PR bodies as inline shell arguments (`--body "..."`), which causes PowerShell or Bash escaping corruption and double-escaped backticks. **ALWAYS** write the PR body to a `.github/pr_body.tmp.md` file (which is git-ignored) and execute `gh pr create --body-file ".github/pr_body.tmp.md"`.
 - **Hyphens Only Standard (No Em Dashes Rule)**:
   Never use em dashes (`—`) anywhere in code, markdown, comments, git commit messages, PR titles, PR bodies, or Linear descriptions. Always use standard hyphens (`-`).
 
