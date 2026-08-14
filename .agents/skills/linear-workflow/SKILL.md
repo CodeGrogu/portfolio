@@ -12,13 +12,13 @@ This skill governs issue tracking, milestone alignment, status transitions, and 
 
 ## Workspace & Project Defaults
 
-| Key | Value |
-| :--- | :--- |
-| **Workspace** | Peer Pressure (`https://linear.app/peerpressure`) |
-| **Project** | `CodeGrogu Portfolio` |
-| **Project ID** | `7f9d282c-6473-4d95-bf0d-3002497537d7` |
-| **Team** | `Portfolio` (Key: `CV`, ID: `48da45e0-0e42-4a0f-a469-11d38746466b`) |
-| **URL** | https://linear.app/peerpressure/project/codegrogu-portfolio-36b613a818cf |
+| Key            | Value                                                                    |
+| :------------- | :----------------------------------------------------------------------- |
+| **Workspace**  | Peer Pressure (`https://linear.app/peerpressure`)                        |
+| **Project**    | `CodeGrogu Portfolio`                                                    |
+| **Project ID** | `7f9d282c-6473-4d95-bf0d-3002497537d7`                                   |
+| **Team**       | `Portfolio` (Key: `CV`, ID: `48da45e0-0e42-4a0f-a469-11d38746466b`)      |
+| **URL**        | https://linear.app/peerpressure/project/codegrogu-portfolio-36b613a818cf |
 
 ### Milestones
 
@@ -51,7 +51,7 @@ Backlog  →  Todo  →  In Progress  →  In Review  →  Done
 - **`In Progress`**: Actively being implemented. Exactly 1 leaf task active at any time.
 - **`In Review`**: Implementation code written; automated test suites, build checks, and verification underway.
 - **`Done`**: Definition of Done satisfied and verified with proof (**Evidence before assertions**).
-  - *Rule*: Never move an issue to Done merely because you wrote the code.
+  - _Rule_: Never move an issue to Done merely because you wrote the code.
 - **`Canceled`**: Reserved strictly for genuine cancellations.
 
 ### 2. Issue → Git Branch Protocol (D5)

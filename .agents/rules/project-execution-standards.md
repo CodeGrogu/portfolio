@@ -10,6 +10,7 @@ This document defines the strict, certified engineering standards for the **Code
 > **Antigravity works strictly against the active Linear issue and must not silently expand its scope.**
 >
 > If any work, refactoring, enhancement, or unmodeled requirement outside the active issue is discovered during implementation:
+>
 > 1. **Do NOT silently implement it.**
 > 2. **Do NOT bundle it into the current branch/PR.**
 > 3. Document the finding and create a dedicated Linear issue in the backlog/active cycle.
@@ -23,13 +24,25 @@ This document defines the strict, certified engineering standards for the **Code
 > **If files or configurations can be generated with a command, use the CLI command first and edit afterward.**
 >
 > Whenever an official CLI tool, framework generator, or package scaffolding command exists (e.g. `bun create ...`, `drizzle-kit generate`, `bunx @tailwindcss/upgrade`, `tsc --init`, `bun test --init`):
+>
 > 1. **Execute the official CLI command** to generate the canonical structure, configuration, or boilerplate.
 > 2. **Inspect and edit** the resulting files to apply project-specific overrides, types, and custom tokens.
 > 3. Do **not** manually author complex configuration templates from scratch when standard generators are available.
 
 ---
 
-## 3. Core Technical Architecture
+## 3. Version Strictness & Linear Checklist Synchronization
+
+> [!IMPORTANT]
+> **1. Strict Version Alignment with Linear**:
+> Every package, runtime, library, and framework version installed in the codebase must strictly match what is specified in Linear issues, tickets, and milestone descriptions (e.g., Next.js 16, React 19, Bun 1.3.14+, Tailwind CSS v4). Never install an older major/minor release when Linear specifies a newer target.
+>
+> **2. Linear Acceptance Criteria Checklist Ticking**:
+> When implementing an issue, as each item in the ticket's scope or acceptance criteria checklist (`- [ ]`) is completed and validated, update the Linear issue description via `save_issue` to tick it off (`- [x]`). When all criteria are satisfied, all checkboxes must be ticked before moving to `Done`.
+
+---
+
+## 4. Core Technical Architecture
 
 - **Clean Layered Organization**:
   - `src/app/`: Next.js 16 App Router pages, layouts, and route handlers.
@@ -45,7 +58,7 @@ This document defines the strict, certified engineering standards for the **Code
 
 ---
 
-## 4. Package Management & Runtime: Bun Only
+## 5. Package Management & Runtime: Bun Only
 
 - **Strict Bun Runtime**: Managed strictly via Bun `v1.3.14+`.
 - **Prohibited Tools**: **Never** run `npm`, `npx`, `yarn`, or `pnpm` for project dependency management or script execution.
@@ -56,7 +69,7 @@ This document defines the strict, certified engineering standards for the **Code
 
 ---
 
-## 5. Next.js 16 & React 19 Conventions
+## 6. Next.js 16 & React 19 Conventions
 
 - **App Router**: Use nested layouts, loading states (`loading.tsx`), and error boundaries (`error.tsx`).
 - **Metadata**: Configure static and dynamic metadata using Next.js `Metadata` / `generateMetadata`.
@@ -65,7 +78,7 @@ This document defines the strict, certified engineering standards for the **Code
 
 ---
 
-## 6. TypeScript Strictness & Standards
+## 7. TypeScript Strictness & Standards
 
 - **Zero `any` Policy**: The `any` keyword is strictly prohibited. Use `unknown` with type guards or Zod parsing.
 - **Strict Compiler Config**:
@@ -78,7 +91,7 @@ This document defines the strict, certified engineering standards for the **Code
 
 ---
 
-## 7. Code Style & Cleanliness
+## 8. Code Style & Cleanliness
 
 - **Functional Composition**: Prefer small, single-responsibility functional components and pure functions.
 - **Naming Conventions**:
@@ -89,21 +102,21 @@ This document defines the strict, certified engineering standards for the **Code
 
 ---
 
-## 8. No Unnecessary Dependencies & Zero Bloat
+## 9. No Unnecessary Dependencies & Zero Bloat
 
 - **Justification Required**: Do not install external libraries for trivial tasks that can be accomplished with standard Web APIs or Bun built-ins.
 - **No Redundant Packages**: Do not mix multiple utility libraries that solve the same problem (e.g. use Zod for all validations; use Tailwind for styling).
 
 ---
 
-## 9. No Fabricated Requirements & Plan Integrity
+## 10. No Fabricated Requirements & Plan Integrity
 
 - Implement only what is explicitly specified in the issue's **Objective**, **Scope**, and **Acceptance Criteria**.
 - Do not add speculative future-proofing, hidden abstractions, or unrequested features.
 
 ---
 
-## 10. Git Conventions & No Direct Main Development
+## 11. Git Conventions & No Direct Main Development
 
 - **Protected Main**: Never commit or push directly to `main`.
 - **Linear Branch Alignment**: Work strictly on the branch named in the Linear issue:
@@ -113,7 +126,7 @@ This document defines the strict, certified engineering standards for the **Code
 
 ---
 
-## 11. Linear Issue Discipline (D4)
+## 12. Linear Issue Discipline (D4)
 
 - **One Active Leaf Task**: Exactly 1 leaf task active in `In Progress` at any time.
 - **Lifecycle Progression**: `Todo` $\rightarrow$ `In Progress` $\rightarrow$ `In Review` $\rightarrow$ `Done`.
@@ -121,7 +134,7 @@ This document defines the strict, certified engineering standards for the **Code
 
 ---
 
-## 12. Testing & Baseline Verification (D9)
+## 13. Testing & Baseline Verification (D9)
 
 Every task must satisfy the 5 baseline verification checks before PR merge:
 
@@ -135,7 +148,7 @@ bun run build      # Production bundle optimization
 
 ---
 
-## 13. Security & Secrets Hardening
+## 14. Security & Secrets Hardening
 
 - **Zero Secret Exposure**: Never commit `.env`, `.env.local`, API tokens, or credentials to git.
 - **Env Validation**: Validate all environment variables at application startup with Zod (`src/lib/env.ts`).

@@ -7,6 +7,7 @@ Tailored query recipes and Context7 best practices for the CodeGrogu Portfolio t
 ## 1. Web3D & Graphics (Three.js / R3F / Drei)
 
 ### Three.js WebGPU
+
 - **Library ID**: `/mrdoob/three.js`
 - **Typical Queries**:
   - `"How to initialize WebGPURenderer with WebGL fallback in three.js"`
@@ -14,6 +15,7 @@ Tailored query recipes and Context7 best practices for the CodeGrogu Portfolio t
   - `"Post-processing pipeline with WebGPURenderer"`
 
 ### React Three Fiber & Drei
+
 - **Library IDs**: `/pmndrs/react-three-fiber`, `/pmndrs/drei`
 - **Typical Queries**:
   - `"How to manage canvas performance, frameloop demand, and canvas unmounting in R3F"`
@@ -25,6 +27,7 @@ Tailored query recipes and Context7 best practices for the CodeGrogu Portfolio t
 ## 2. Full-Stack Data Layer (Neon & Drizzle ORM)
 
 ### Drizzle ORM & Neon Serverless
+
 - **Library IDs**: `/drizzle-team/drizzle-orm`, `/neondatabase/serverless`
 - **Typical Queries**:
   - `"How to configure drizzle-orm with neon-http driver in Next.js App Router"`
@@ -37,6 +40,7 @@ Tailored query recipes and Context7 best practices for the CodeGrogu Portfolio t
 ## 3. Form Validation & Server Actions (Zod)
 
 ### Zod Validation
+
 - **Library ID**: `/colinhacks/zod`
 - **Typical Queries**:
   - `"Validating Next.js Server Action form data with Zod safeParseAsync"`
@@ -48,6 +52,7 @@ Tailored query recipes and Context7 best practices for the CodeGrogu Portfolio t
 ## 4. Animation & Interactivity (GSAP & ScrollTrigger)
 
 ### GSAP
+
 - **Library ID**: `/greensock/gsap`
 - **Typical Queries**:
   - `"Using GSAP useGSAP hook in React 19 / Next.js with cleanup"`
@@ -59,6 +64,7 @@ Tailored query recipes and Context7 best practices for the CodeGrogu Portfolio t
 ## 5. Next.js App Router & Tailwind CSS
 
 ### Next.js
+
 - **Library ID**: `/vercel/next.js`
 - **Typical Queries**:
   - `"Next.js 15 metadata object, generateMetadata, and OpenGraph image generation"`
@@ -66,6 +72,7 @@ Tailored query recipes and Context7 best practices for the CodeGrogu Portfolio t
   - `"Next.js Server Actions with useActionState and revalidatePath"`
 
 ### Tailwind CSS
+
 - **Library ID**: `/tailwindlabs/tailwindcss`
 - **Typical Queries**:
   - `"Configuring custom color variables, animations, and dark mode class strategy in Tailwind"`

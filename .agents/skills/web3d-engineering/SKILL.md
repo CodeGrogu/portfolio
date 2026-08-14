@@ -14,14 +14,14 @@ This skill defines the technical standards, performance boundaries, and engineer
 
 ## Core Graphics Stack & Conventions
 
-| Technology | Role | Verified Standards & Import Paths |
-| :--- | :--- | :--- |
-| **Three.js** | Core 3D Engine | WebGPU-first via `three/webgpu` (`WebGPURenderer`) with seamless WebGL fallback |
-| **React Three Fiber (R3F)** | React Renderer | Declarative canvas mounting via `@react-three/fiber` |
-| **Drei** | Shader & Helper Primitives | `@react-three/drei` (`useGLTF`, `Environment`, `Float`, `Center`) |
-| **Asset Pipeline** | 3D Assets & Meshes | Blender $\rightarrow$ glTF/GLB with Draco geometry compression & Meshopt texture optimization |
-| **Animation** | Camera & Scene Motion | GSAP + ScrollTrigger synchronized with R3F render loop (`useFrame`) |
-| **Motion Accessibility** | A11y & Comfort | Respects `prefers-reduced-motion` with static camera / 2D fallback |
+| Technology                  | Role                       | Verified Standards & Import Paths                                                             |
+| :-------------------------- | :------------------------- | :-------------------------------------------------------------------------------------------- |
+| **Three.js**                | Core 3D Engine             | WebGPU-first via `three/webgpu` (`WebGPURenderer`) with seamless WebGL fallback               |
+| **React Three Fiber (R3F)** | React Renderer             | Declarative canvas mounting via `@react-three/fiber`                                          |
+| **Drei**                    | Shader & Helper Primitives | `@react-three/drei` (`useGLTF`, `Environment`, `Float`, `Center`)                             |
+| **Asset Pipeline**          | 3D Assets & Meshes         | Blender $\rightarrow$ glTF/GLB with Draco geometry compression & Meshopt texture optimization |
+| **Animation**               | Camera & Scene Motion      | GSAP + ScrollTrigger synchronized with R3F render loop (`useFrame`)                           |
+| **Motion Accessibility**    | A11y & Comfort             | Respects `prefers-reduced-motion` with static camera / 2D fallback                            |
 
 ---
 
@@ -35,7 +35,9 @@ Three.js modern `WebGPURenderer` targets WebGPU by default and automatically fal
 // Verified Three.js WebGPU Initialization
 import * as THREE from 'three/webgpu';
 
-export async function createPortfolioRenderer(canvas: HTMLCanvasElement): Promise<THREE.WebGPURenderer> {
+export async function createPortfolioRenderer(
+  canvas: HTMLCanvasElement,
+): Promise<THREE.WebGPURenderer> {
   const renderer = new THREE.WebGPURenderer({
     canvas,
     antialias: true,
@@ -77,9 +79,7 @@ export function Web3DSceneCanvas({ children }: { children: React.ReactNode }) {
       camera={{ position: [0, 0, 5], fov: 45 }}
       dpr={[1, 2]}
     >
-      <Suspense fallback={null}>
-        {children}
-      </Suspense>
+      <Suspense fallback={null}>{children}</Suspense>
     </Canvas>
   );
 }
@@ -96,11 +96,11 @@ export function Web3DSceneCanvas({ children }: { children: React.ReactNode }) {
 
 Dynamically select rendering profiles based on hardware concurrency, device memory, and frame timing:
 
-| Quality Tier | Target Devices | Shadow Maps | Pixel Ratio | Post-Processing | MSAA |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **High** | Desktop with Discrete GPU | PCFSoft / Cascaded | `Math.min(window.devicePixelRatio, 2)` | Bloom, Vignette, Depth of Field | $4\times$ |
-| **Medium** | Modern Mobile / Integrated GPU | Basic ShadowMap | `1.0` | Subtle Vignette only | $2\times$ |
-| **Low** | Low-end Mobile / Battery Saver | Disabled | `1.0` / Dynamic Resolution | Disabled | None |
+| Quality Tier | Target Devices                 | Shadow Maps        | Pixel Ratio                            | Post-Processing                 | MSAA      |
+| :----------- | :----------------------------- | :----------------- | :------------------------------------- | :------------------------------ | :-------- |
+| **High**     | Desktop with Discrete GPU      | PCFSoft / Cascaded | `Math.min(window.devicePixelRatio, 2)` | Bloom, Vignette, Depth of Field | $4\times$ |
+| **Medium**   | Modern Mobile / Integrated GPU | Basic ShadowMap    | `1.0`                                  | Subtle Vignette only            | $2\times$ |
+| **Low**      | Low-end Mobile / Battery Saver | Disabled           | `1.0` / Dynamic Resolution             | Disabled                        | None      |
 
 ### 5. Memory Hygiene & Resource Disposal (`CV-71`)
 
