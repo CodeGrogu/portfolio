@@ -108,11 +108,22 @@ This skill defines the battle-tested, certified end-to-end execution loop for im
 
 6. **Local Pre-Flight Verification Suite**:
    Run composite checks in PowerShell before committing:
+
    ```powershell
    $env:Path = "$env:USERPROFILE\.bun\bin;" + $env:Path
    bun test
    bun run validate
    ```
+
+7. **Browser Verification & Visual Excellence (Playwright & Chrome DevTools MCP)**:
+   - For all user-facing UI, page routes, layouts, and Web3D canvases:
+     1. Use Chrome DevTools MCP (`navigate_page`, `take_snapshot`, `take_screenshot`) and Playwright to verify that the implementation renders correctly in a real browser runtime.
+     2. Verify that the visual composition meets the project's premium design standards (rich glassmorphism, responsive typography, zero layout shift, smooth interactions).
+     3. Verify zero runtime console errors (`list_console_messages`).
+
+8. **Mandatory Lighthouse Audits (100% Target Standard)**:
+   - Run a Lighthouse audit (via Chrome DevTools MCP `lighthouse_audit` or Lighthouse CI) on implemented pages.
+   - Strive for 100% across all audited categories: Accessibility (100%), Best Practices (100%), SEO (100%), and Performance (100% target, $\ge 95$ minimum threshold).
 
 ---
 
