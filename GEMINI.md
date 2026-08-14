@@ -57,6 +57,18 @@
 
 ---
 
+## CLI Generation First (Critical Tooling Rule)
+
+> [!IMPORTANT]
+> **If files or configurations can be generated with a command, use the CLI command first and edit afterward.**
+>
+> Whenever an official CLI tool, framework generator, or package scaffolding command exists (e.g. `bun create ...`, `drizzle-kit generate`, `bunx @tailwindcss/upgrade`, `tsc --init`, `bun test --init`):
+> 1. **Execute the official CLI command** to generate the canonical structure, configuration, or boilerplate.
+> 2. **Inspect and edit** the resulting files to apply project-specific overrides, types, and custom tokens.
+> 3. Do **not** manually author complex configuration templates from scratch when standard generators are available.
+
+---
+
 ## Core Engineering & Architectural Principles
 
 1. **Architecture & Directory Structure**:
