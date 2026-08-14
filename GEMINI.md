@@ -103,6 +103,7 @@
 
 ## Workspace Skills
 
+- [**`portfolio-development-lifecycle`**](file:///c:/Users/Jaden/Documents/Programming/Personal/portfolio/.agents/skills/portfolio-development-lifecycle/SKILL.md): Canonical 18-step development, quality gate, PR review, merge, and Linear closure loop.
 - [**`linear-workflow`**](file:///c:/Users/Jaden/Documents/Programming/Personal/portfolio/.agents/skills/linear-workflow/SKILL.md): Canonical DAG rules, status lifecycle, branch conventions, and Linear operations.
 - [**`github-workflow`**](file:///c:/Users/Jaden/Documents/Programming/Personal/portfolio/.agents/skills/github-workflow/SKILL.md): GitHub MCP operations, branch synchronization, pull request lifecycles, and code integration.
 - [**`web3d-engineering`**](file:///c:/Users/Jaden/Documents/Programming/Personal/portfolio/.agents/skills/web3d-engineering/SKILL.md): Three.js WebGPU, R3F, Draco/Meshopt assets, quality profiles, and reduced motion.
