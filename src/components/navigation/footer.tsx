@@ -11,7 +11,7 @@ export function Footer() {
           <div>
             <Link
               href={ROUTES.HOME}
-              className="inline-flex min-h-[44px] items-center text-lg font-bold tracking-tight text-white hover:text-emerald-400 touch-manipulation"
+              className="inline-flex min-h-[44px] touch-manipulation items-center text-lg font-bold tracking-tight text-white hover:text-emerald-400"
             >
               CodeGrogu<span className="text-emerald-500">.</span>
             </Link>
@@ -30,7 +30,7 @@ export function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="inline-flex min-h-[36px] items-center py-1 transition-colors hover:text-emerald-400 touch-manipulation"
+                    className="inline-flex min-h-[36px] touch-manipulation items-center py-1 transition-colors hover:text-emerald-400"
                   >
                     {item.title}
                   </Link>
