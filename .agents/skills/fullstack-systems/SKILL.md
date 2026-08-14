@@ -13,19 +13,20 @@ This skill governs backend database architecture, relational modeling, serverles
 
 ## Core Stack & Verified Dependencies
 
-| Layer | Technology | Official Driver / Library | Verified Pattern |
-| :--- | :--- | :--- | :--- |
-| **Database** | Neon PostgreSQL | `@neondatabase/serverless` | Serverless connection pooling over HTTP/WebSockets |
-| **ORM** | Drizzle ORM | `drizzle-orm` & `drizzle-kit` | `drizzle-orm/neon-http` for stateless Edge/API routes; `neon-serverless` for interactive transactions |
-| **Validation** | Zod | `zod` | Runtime schema validation, input sanitization, type inference |
-| **Rate Limiting** | Sliding Window / KV | Upstash / in-memory tokens | Public booking endpoint rate limiting (`CV-60`) |
-| **Notifications** | Resend | `resend` + `@react-email/components` | Async booking confirmations & secure cancellation magic links (`CV-62`) |
+| Layer             | Technology          | Official Driver / Library            | Verified Pattern                                                                                      |
+| :---------------- | :------------------ | :----------------------------------- | :---------------------------------------------------------------------------------------------------- |
+| **Database**      | Neon PostgreSQL     | `@neondatabase/serverless`           | Serverless connection pooling over HTTP/WebSockets                                                    |
+| **ORM**           | Drizzle ORM         | `drizzle-orm` & `drizzle-kit`        | `drizzle-orm/neon-http` for stateless Edge/API routes; `neon-serverless` for interactive transactions |
+| **Validation**    | Zod                 | `zod`                                | Runtime schema validation, input sanitization, type inference                                         |
+| **Rate Limiting** | Sliding Window / KV | Upstash / in-memory tokens           | Public booking endpoint rate limiting (`CV-60`)                                                       |
+| **Notifications** | Resend              | `resend` + `@react-email/components` | Async booking confirmations & secure cancellation magic links (`CV-62`)                               |
 
 ---
 
 ## Verified Implementation Patterns
 
 ### 1. Drizzle Client with Neon HTTP Driver (`CV-13`, `CV-51`)
+
 For standard Next.js App Router Server Actions and API route handlers:
 
 ```typescript
@@ -41,6 +42,7 @@ export const db = drizzle(process.env.DATABASE_URL, { schema });
 ```
 
 ### 2. Type-Safe Schema Definition with Drizzle pg-core
+
 Audit timestamps, UUIDs, and relational definitions:
 
 ```typescript
@@ -59,7 +61,9 @@ export const services = pgTable('services', {
 
 export const bookings = pgTable('bookings', {
   id: uuid('id').defaultRandom().primaryKey(),
-  serviceId: varchar('service_id', { length: 100 }).references(() => services.id).notNull(),
+  serviceId: varchar('service_id', { length: 100 })
+    .references(() => services.id)
+    .notNull(),
   clientName: varchar('client_name', { length: 255 }).notNull(),
   clientEmail: varchar('client_email', { length: 255 }).notNull(),
   clientNotes: text('client_notes'),
@@ -79,6 +83,7 @@ export const bookingsRelations = relations(bookings, ({ one }) => ({
 ```
 
 ### 3. Zod Input Validation & Schema Inference (`CV-59`)
+
 ```typescript
 // src/lib/validations/booking.ts
 import { z } from 'zod';
@@ -95,14 +100,16 @@ export type CreateBookingInput = z.infer<typeof CreateBookingSchema>;
 ```
 
 ### 4. Atomic Slot Collision Prevention (`CV-58`, `CV-61`)
-* Use database-level unique constraints on `(service_id, scheduled_at)` or conditional transactional insert queries to make double-booking mathematically impossible under concurrent requests.
-* Enforce minimum advance lead time (e.g., $\ge 24\text{ hours}$) and operating window checks before writing to the database.
+
+- Use database-level unique constraints on `(service_id, scheduled_at)` or conditional transactional insert queries to make double-booking mathematically impossible under concurrent requests.
+- Enforce minimum advance lead time (e.g., $\ge 24\text{ hours}$) and operating window checks before writing to the database.
 
 ---
 
 ## Context7 API Lookup
 
 When implementing full-stack features, verify current APIs via Context7:
-* Drizzle ORM: `/drizzle-team/drizzle-orm` or `/drizzle-team/drizzle-orm-docs`
-* Neon Serverless: `/neondatabase/serverless`
-* Zod: `/colinhacks/zod`
+
+- Drizzle ORM: `/drizzle-team/drizzle-orm` or `/drizzle-team/drizzle-orm-docs`
+- Neon Serverless: `/neondatabase/serverless`
+- Zod: `/colinhacks/zod`

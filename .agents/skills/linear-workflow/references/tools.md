@@ -5,7 +5,9 @@ Quick cheatsheet for available Linear tools in the workspace.
 ## Issue Operations
 
 ### `list_issues`
+
 List and search issues in the project.
+
 ```json
 {
   "project": "CodeGrogu Portfolio",
@@ -16,7 +18,9 @@ List and search issues in the project.
 ```
 
 ### `get_issue`
+
 Retrieve comprehensive details for an issue.
+
 ```json
 {
   "issue": "CV-12"
@@ -24,14 +28,18 @@ Retrieve comprehensive details for an issue.
 ```
 
 ### `save_issue`
+
 Create or update an issue. To update, include the `id` field.
+
 ```json
 {
   "id": "CV-12",
   "state": "In Progress"
 }
 ```
+
 Or create:
+
 ```json
 {
   "teamId": "48da45e0-0e42-4a0f-a469-11d38746466b",
@@ -47,7 +55,9 @@ Or create:
 ## Comments & Updates
 
 ### `save_comment`
+
 Post a comment to an issue.
+
 ```json
 {
   "issueId": "CV-12",
@@ -56,7 +66,9 @@ Post a comment to an issue.
 ```
 
 ### `list_comments`
+
 Retrieve conversation threads on an issue.
+
 ```json
 {
   "issueId": "CV-12"
@@ -66,7 +78,9 @@ Retrieve conversation threads on an issue.
 ## Project & Milestone Management
 
 ### `get_project`
+
 Get details, health, and milestone progress.
+
 ```json
 {
   "query": "CodeGrogu Portfolio",
@@ -75,7 +89,9 @@ Get details, health, and milestone progress.
 ```
 
 ### `list_milestones`
+
 List all milestones for the project.
+
 ```json
 {
   "project": "CodeGrogu Portfolio"
@@ -83,7 +99,9 @@ List all milestones for the project.
 ```
 
 ### `save_status_update`
+
 Post a project status update.
+
 ```json
 {
   "projectId": "7f9d282c-6473-4d95-bf0d-3002497537d7",

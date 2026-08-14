@@ -25,7 +25,7 @@ Backlog  →  Todo  →  In Progress  →  In Review  →  Done
 - **`In Progress`**: Actively being implemented. Only 1 leaf task active in progress at a time.
 - **`In Review`**: Implementation is finished; automated tests, builds, and verification/review are actively running.
 - **`Done`**: Definition of Done has been satisfied and proven (**Evidence before assertions**).
-  - *Rule*: Never move an issue to Done merely because code was written.
+  - _Rule_: Never move an issue to Done merely because code was written.
 - **`Canceled`**: Reserved strictly for issues that are genuinely cancelled.
 
 ## 4. Issue → Git Branch Convention (D5)
@@ -83,20 +83,25 @@ Example: `feat(CV-6): scaffold Next.js application with Bun`
 
 ```markdown
 ## Summary
+
 ...
 
 ## Linear
+
 CV-6
 
 ## Changes
+
 - ...
 
 ## Validation
+
 - bun run typecheck
 - bun run lint
 - bun run build
 
 ## Notes
+
 ...
 ```
 

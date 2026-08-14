@@ -50,6 +50,7 @@
 > **Antigravity works strictly against the active Linear issue and must not silently expand its scope.**
 >
 > If any work, refactoring, enhancement, or unmodeled requirement outside the active issue is discovered during implementation:
+>
 > 1. **Do NOT silently implement it.**
 > 2. **Do NOT bundle it into the current branch/PR.**
 > 3. Document the finding and create a dedicated Linear issue in the backlog/active cycle.
@@ -63,9 +64,21 @@
 > **If files or configurations can be generated with a command, use the CLI command first and edit afterward.**
 >
 > Whenever an official CLI tool, framework generator, or package scaffolding command exists (e.g. `bun create ...`, `drizzle-kit generate`, `bunx @tailwindcss/upgrade`, `tsc --init`, `bun test --init`):
+>
 > 1. **Execute the official CLI command** to generate the canonical structure, configuration, or boilerplate.
 > 2. **Inspect and edit** the resulting files to apply project-specific overrides, types, and custom tokens.
 > 3. Do **not** manually author complex configuration templates from scratch when standard generators are available.
+
+---
+
+## Version Strictness & Linear Checklist Synchronization
+
+> [!IMPORTANT]
+> **1. Strict Version Alignment with Linear**:
+> Every package, runtime, library, and framework version installed in the codebase must strictly match what is specified in Linear issues, tickets, and milestone descriptions (e.g., Next.js 16, React 19, Bun 1.3.14+, Tailwind CSS v4). Never install an older major/minor release when Linear specifies a newer target.
+>
+> **2. Linear Acceptance Criteria Checklist Ticking**:
+> When implementing an issue, as each item in the ticket's scope or acceptance criteria checklist (`- [ ]`) is completed and validated, update the Linear issue description via `save_issue` to tick it off (`- [x]`). When all criteria are satisfied, all checkboxes must be ticked before moving to `Done`.
 
 ---
 
@@ -96,7 +109,7 @@
 
 > [!IMPORTANT]
 > **Plan Freeze Active**: Before touching any issue status, do not modify the architecture, hierarchy, estimates, or dependency graph.
-> 
+>
 > **Linear Mutation Guard**: Only modify Linear if implementation, tests, or builds reveal a concrete, real defect. Do not engage in speculative or endless plan polishing.
 
 ---

@@ -68,17 +68,17 @@ Execute targeted queries against the resolved `libraryId`.
 
 ## Pre-Mapped Project Stack Quick Reference
 
-| Library | Primary Use | Context7 Library ID |
-| :--- | :--- | :--- |
-| **Next.js** | App Framework, Routing, Server Components | `/vercel/next.js` |
-| **React** | Core UI & Hooks | `/facebook/react` |
-| **Three.js** | WebGPU/WebGL 3D Engine | `/mrdoob/three.js` |
-| **React Three Fiber** | Declarative 3D in React | `/pmndrs/react-three-fiber` |
-| **Drei** | R3F Helper Primitives | `/pmndrs/drei` |
-| **Drizzle ORM** | PostgreSQL Type-Safe ORM | `/drizzle-team/drizzle-orm` |
-| **Neon** | Serverless PostgreSQL Driver | `/neondatabase/serverless` |
-| **Zod** | Schema Validation & Type Inference | `/colinhacks/zod` |
-| **GSAP** | Motion & ScrollTrigger Animations | `/greensock/gsap` |
-| **Tailwind CSS** | Styling System | `/tailwindlabs/tailwindcss` |
+| Library               | Primary Use                               | Context7 Library ID         |
+| :-------------------- | :---------------------------------------- | :-------------------------- |
+| **Next.js**           | App Framework, Routing, Server Components | `/vercel/next.js`           |
+| **React**             | Core UI & Hooks                           | `/facebook/react`           |
+| **Three.js**          | WebGPU/WebGL 3D Engine                    | `/mrdoob/three.js`          |
+| **React Three Fiber** | Declarative 3D in React                   | `/pmndrs/react-three-fiber` |
+| **Drei**              | R3F Helper Primitives                     | `/pmndrs/drei`              |
+| **Drizzle ORM**       | PostgreSQL Type-Safe ORM                  | `/drizzle-team/drizzle-orm` |
+| **Neon**              | Serverless PostgreSQL Driver              | `/neondatabase/serverless`  |
+| **Zod**               | Schema Validation & Type Inference        | `/colinhacks/zod`           |
+| **GSAP**              | Motion & ScrollTrigger Animations         | `/greensock/gsap`           |
+| **Tailwind CSS**      | Styling System                            | `/tailwindlabs/tailwindcss` |
 
 For advanced query recipes and deep-dive documentation on these libraries, see [Stack Libraries Cheatsheet](./references/stack-libraries.md).

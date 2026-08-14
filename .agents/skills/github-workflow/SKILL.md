@@ -14,13 +14,13 @@ This skill governs GitHub operations, branch synchronization, pull request lifec
 
 ## Workspace & Repository Defaults
 
-| Key | Value |
-| :--- | :--- |
-| **Owner** | `CodeGrogu` |
-| **Repository** | `portfolio` |
-| **Default Branch** | `main` |
-| **Linear Workspace** | Peer Pressure (`CV`) |
-| **MCP Server** | `github` (called via `call_mcp_tool`) |
+| Key                  | Value                                 |
+| :------------------- | :------------------------------------ |
+| **Owner**            | `CodeGrogu`                           |
+| **Repository**       | `portfolio`                           |
+| **Default Branch**   | `main`                                |
+| **Linear Workspace** | Peer Pressure (`CV`)                  |
+| **MCP Server**       | `github` (called via `call_mcp_tool`) |
 
 ---
 
@@ -152,6 +152,7 @@ Every pull request must follow a strict, consistent format that clearly identifi
 ```
 
 Examples:
+
 - `feat(CV-6): scaffold Next.js application with Bun`
 - `chore(CV-7): establish TypeScript, linting, formatting and import conventions`
 - `feat(CV-14): define environment and secrets strategy`
@@ -163,20 +164,25 @@ Every PR body must contain these exact 5 sections:
 
 ```markdown
 ## Summary
+
 Brief description of the problem and what this PR accomplishes.
 
 ## Linear
+
 CV-6
 
 ## Changes
+
 - List of concrete code, configuration, or architectural additions/modifications.
 
 ## Validation
+
 - bun run typecheck
 - bun run lint
 - bun run build
 
 ## Notes
+
 Any relevant technical details, architectural context, or follow-up dependencies.
 ```
 

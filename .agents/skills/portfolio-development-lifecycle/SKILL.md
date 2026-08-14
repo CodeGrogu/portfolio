@@ -89,7 +89,11 @@ This skill defines the battle-tested, certified end-to-end execution loop for im
 2. **Scope Guard**:
    - Never implement work outside the active issue's acceptance criteria.
    - If a new requirement or defect is uncovered, file a separate Linear issue.
-3. **Baseline Verification Commands (D9)**:
+3. **Version Strictness with Linear**:
+   - Ensure installed dependencies match the exact versions defined in Linear tickets and milestone specs (e.g. Next.js 16, React 19, Bun 1.3.14+, Tailwind CSS v4).
+4. **Linear Checklist / Acceptance Criteria Ticking**:
+   - As each acceptance criteria checklist item (`- [ ]`) is implemented and verified, update the Linear issue description via `save_issue` to mark it complete (`- [x]`).
+5. **Baseline Verification Commands (D9)**:
    Run all 4 baseline commands in PowerShell:
    ```powershell
    $env:Path = "$env:USERPROFILE\.bun\bin;" + $env:Path
@@ -138,7 +142,7 @@ This skill defines the battle-tested, certified end-to-end execution loop for im
    ```javascript
    await callTool('save_comment', {
      issueId: 'CV-XX',
-     body: `## Definition of Done Satisfied: CV-XX\n\n**Merged PR**: #${prNumber}\n\n### Verification Evidence:\n- bun run typecheck: 0 errors\n- bun run lint: 0 errors\n- bun run build: 0 errors\n\nTask complete. Advancing to next DAG task.`
+     body: `## Definition of Done Satisfied: CV-XX\n\n**Merged PR**: #${prNumber}\n\n### Verification Evidence:\n- bun run typecheck: 0 errors\n- bun run lint: 0 errors\n- bun run build: 0 errors\n\nTask complete. Advancing to next DAG task.`,
    });
    await callTool('save_issue', { id: 'CV-XX', state: 'Done' });
    ```

@@ -11,12 +11,21 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'CodeGrogu — Interactive Portfolio & Web3D Systems',
   description: 'Full-Stack Developer, 3D Web Graphics Specialist, and Software Architect.',
-  keywords: ['CodeGrogu', 'Full-Stack Developer', 'Three.js', 'WebGPU', 'Next.js', 'React', 'TypeScript'],
+  keywords: [
+    'CodeGrogu',
+    'Full-Stack Developer',
+    'Three.js',
+    'WebGPU',
+    'Next.js',
+    'React',
+    'TypeScript',
+  ],
   authors: [{ name: 'CodeGrogu' }],
   metadataBase: new URL('https://codegrogu.com'),
   openGraph: {
     title: 'CodeGrogu — Interactive Portfolio & Web3D Systems',
-    description: 'High-performance interactive web systems, WebGPU graphics, and full-stack software architecture.',
+    description:
+      'High-performance interactive web systems, WebGPU graphics, and full-stack software architecture.',
     url: 'https://codegrogu.com',
     siteName: 'CodeGrogu Portfolio',
     locale: 'en_US',
