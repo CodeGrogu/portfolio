@@ -23,6 +23,6 @@ describe('Hero Section Component & Architecture Teaser (CV-10)', () => {
     expect(pageCode).toContain('HeroSection');
     expect(pageCode).toContain('ServicesSection');
     expect(pageCode).toContain('AboutSection');
-    expect(pageCode).toContain('Recent Engineering Milestones');
+    expect(pageCode).toContain('FeaturedProjectsSection');
   });
 });
