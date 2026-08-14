@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ROUTES } from '@/lib/routes';
+import { Button, Input, Textarea } from '@/components/ui';
 
 export const metadata: Metadata = {
   title: 'Book a Consultation - CodeGrogu Portfolio',
@@ -47,12 +48,9 @@ export default function BookPage() {
             </li>
           </ul>
           <div className="mt-8">
-            <button
-              type="button"
-              className="w-full rounded-lg bg-emerald-500 py-3 text-center text-sm font-semibold text-zinc-950 hover:bg-emerald-400 focus:ring-2 focus:ring-emerald-400 focus:outline-none"
-            >
+            <Button variant="primary" className="w-full">
               Select Discovery Slot (CV-43)
-            </button>
+            </Button>
           </div>
         </div>
 
@@ -64,46 +62,24 @@ export default function BookPage() {
           </p>
 
           <form className="mt-6 space-y-4" onSubmit={undefined}>
-            <div>
-              <label htmlFor="name" className="block text-xs font-medium text-zinc-300">
-                Your Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                placeholder="Ada Lovelace"
-                disabled
-                className="mt-1 w-full cursor-not-allowed rounded-lg border border-zinc-700 bg-zinc-800/60 px-3 py-2 text-sm text-zinc-400 placeholder-zinc-500"
-              />
-            </div>
-            <div>
-              <label htmlFor="email" className="block text-xs font-medium text-zinc-300">
-                Work Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="ada@example.com"
-                disabled
-                className="mt-1 w-full cursor-not-allowed rounded-lg border border-zinc-700 bg-zinc-800/60 px-3 py-2 text-sm text-zinc-400 placeholder-zinc-500"
-              />
-            </div>
-            <div>
-              <label htmlFor="message" className="block text-xs font-medium text-zinc-300">
-                Project Scope Summary
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows={3}
-                placeholder="Interactive booking engine integration scheduled for Milestone 4 (CV-43)..."
-                disabled
-                className="mt-1 w-full cursor-not-allowed rounded-lg border border-zinc-700 bg-zinc-800/60 px-3 py-2 text-sm text-zinc-400 placeholder-zinc-500"
-              />
-            </div>
-            <p className="text-xs text-zinc-500 italic">
+            <Input label="Your Name" id="name" name="name" placeholder="Ada Lovelace" disabled />
+            <Input
+              label="Work Email"
+              type="email"
+              id="email"
+              name="email"
+              placeholder="ada@example.com"
+              disabled
+            />
+            <Textarea
+              label="Project Scope Summary"
+              id="message"
+              name="message"
+              rows={3}
+              placeholder="Interactive booking engine integration scheduled for Milestone 4 (CV-43)..."
+              disabled
+            />
+            <p className="text-xs text-zinc-400 italic">
               * Interactive transactional booking form integration active in upcoming Cycle 2 issue
               CV-43.
             </p>

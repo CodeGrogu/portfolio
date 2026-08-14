@@ -54,32 +54,32 @@ export default function DesignSystemPage() {
             <div className="rounded-xl border border-zinc-800 bg-[#090a0f] p-4 text-center">
               <div className="mx-auto h-8 w-8 rounded-full border border-zinc-700 bg-[#090a0f]" />
               <p className="mt-3 text-xs font-semibold text-white">Background</p>
-              <p className="font-mono text-[10px] text-zinc-500">#090A0F</p>
+              <p className="font-mono text-[10px] text-zinc-400">#090A0F</p>
             </div>
             <div className="rounded-xl border border-zinc-800 bg-zinc-900/60 p-4 text-center">
               <div className="mx-auto h-8 w-8 rounded-full bg-emerald-500" />
               <p className="mt-3 text-xs font-semibold text-white">Emerald Primary</p>
-              <p className="font-mono text-[10px] text-zinc-500">#10B981</p>
+              <p className="font-mono text-[10px] text-zinc-400">#10B981</p>
             </div>
             <div className="rounded-xl border border-zinc-800 bg-zinc-900/60 p-4 text-center">
               <div className="mx-auto h-8 w-8 rounded-full bg-cyan-500" />
               <p className="mt-3 text-xs font-semibold text-white">Cyan Accent</p>
-              <p className="font-mono text-[10px] text-zinc-500">#06B6D4</p>
+              <p className="font-mono text-[10px] text-zinc-400">#06B6D4</p>
             </div>
             <div className="rounded-xl border border-zinc-800 bg-zinc-900/60 p-4 text-center">
               <div className="mx-auto h-8 w-8 rounded-full bg-indigo-500" />
               <p className="mt-3 text-xs font-semibold text-white">Indigo Accent</p>
-              <p className="font-mono text-[10px] text-zinc-500">#6366F1</p>
+              <p className="font-mono text-[10px] text-zinc-400">#6366F1</p>
             </div>
             <div className="rounded-xl border border-zinc-800 bg-zinc-900/60 p-4 text-center">
               <div className="mx-auto h-8 w-8 rounded-full bg-violet-500" />
               <p className="mt-3 text-xs font-semibold text-white">Violet Accent</p>
-              <p className="font-mono text-[10px] text-zinc-500">#8B5CF6</p>
+              <p className="font-mono text-[10px] text-zinc-400">#8B5CF6</p>
             </div>
             <div className="rounded-xl border border-zinc-800 bg-zinc-900/60 p-4 text-center">
               <div className="mx-auto h-8 w-8 rounded-full border border-white/20 bg-[var(--glass-bg)] backdrop-blur-md" />
               <p className="mt-3 text-xs font-semibold text-white">Glass Surface</p>
-              <p className="font-mono text-[10px] text-zinc-500">rgba(18,20,28,0.7)</p>
+              <p className="font-mono text-[10px] text-zinc-400">rgba(18,20,28,0.7)</p>
             </div>
           </div>
         </Section>
@@ -97,32 +97,32 @@ export default function DesignSystemPage() {
 
           <div className="mt-8 space-y-6 rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6">
             <div>
-              <p className="font-mono text-xs text-zinc-500">Display / 4xl Font Extrabold</p>
+              <p className="font-mono text-xs text-zinc-400">Display / 4xl Font Extrabold</p>
               <h1 className="text-4xl font-extrabold text-white">
                 High-Performance Interactive 3D
               </h1>
             </div>
             <div>
-              <p className="font-mono text-xs text-zinc-500">Heading 2 / 2xl Font Bold</p>
+              <p className="font-mono text-xs text-zinc-400">Heading 2 / 2xl Font Bold</p>
               <h2 className="text-2xl font-bold text-white">
                 Architectural Case Studies & Systems
               </h2>
             </div>
             <div>
-              <p className="font-mono text-xs text-zinc-500">Heading 3 / xl Font SemiBold</p>
+              <p className="font-mono text-xs text-zinc-400">Heading 3 / xl Font SemiBold</p>
               <h3 className="text-xl font-semibold text-white">
                 Full-Stack Concurrency & Validation
               </h3>
             </div>
             <div>
-              <p className="font-mono text-xs text-zinc-500">Body Text / Base Regular</p>
+              <p className="font-mono text-xs text-zinc-400">Body Text / Base Regular</p>
               <p className="text-base text-zinc-300">
                 Next.js 16 App Router foundation styled with responsive CSS tokens and accessible
                 high-contrast focus indicators.
               </p>
             </div>
             <div>
-              <p className="font-mono text-xs text-zinc-500">Code / Monospace Font</p>
+              <p className="font-mono text-xs text-zinc-400">Code / Monospace Font</p>
               <p className="font-mono text-sm text-emerald-400">
                 {
                   "const canvas = new WebGPURenderer({ antialias: true, powerPreference: 'high-performance' });"
@@ -339,7 +339,7 @@ export default function DesignSystemPage() {
                 <Spinner size="md" />
                 <Spinner size="lg" />
               </div>
-              <p className="text-xs text-zinc-500">Accessible ARIA status indicators</p>
+              <p className="text-xs text-zinc-400">Accessible ARIA status indicators</p>
             </div>
           </div>
         </Section>
