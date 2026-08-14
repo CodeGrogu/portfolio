@@ -31,7 +31,9 @@ Thumbs.db
 *.tsbuildinfo
 next-env.d.ts
 
-# IDE & Scratch
+# IDE, Scratch & Temporary PR Bodies
 .vscode/
 .idea/
 scratch/
+*.tmp.md
+.github/*.tmp.md
