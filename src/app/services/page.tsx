@@ -46,35 +46,37 @@ export default function ServicesPage() {
   ];
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+    <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-20 lg:px-8">
       <div className="max-w-3xl">
         <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
           Services & Technical Solutions
         </h1>
-        <p className="mt-4 text-lg text-zinc-400">
+        <p className="mt-4 text-base leading-relaxed text-zinc-400 sm:text-lg">
           Providing specialized engineering capabilities for high-impact web applications, immersive
           3D graphics, and resilient full-stack systems.
         </p>
       </div>
 
-      <div className="mt-16 space-y-12">
+      <div className="mt-12 space-y-8 sm:mt-16 sm:space-y-12">
         {services.map((service, idx) => (
           <section
             key={idx}
-            className="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-8 transition-all hover:border-zinc-700"
+            className="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6 transition-all hover:border-zinc-700 sm:p-8"
           >
-            <h2 className="text-2xl font-bold text-white">{service.title}</h2>
-            <p className="mt-3 text-base text-zinc-400">{service.description}</p>
+            <h2 className="text-xl font-bold text-white sm:text-2xl">{service.title}</h2>
+            <p className="mt-3 text-sm leading-relaxed text-zinc-400 sm:text-base">
+              {service.description}
+            </p>
 
             <div className="mt-6">
               <h3 className="text-xs font-semibold tracking-wider text-emerald-400 uppercase">
                 Core Deliverables
               </h3>
-              <ul className="mt-3 grid grid-cols-1 gap-2 text-sm text-zinc-300 sm:grid-cols-2">
+              <ul className="mt-3 grid grid-cols-1 gap-2.5 text-sm text-zinc-300 sm:grid-cols-2">
                 {service.deliverables.map((item, itemIdx) => (
                   <li key={itemIdx} className="flex items-center gap-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                    {item}
+                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400" />
+                    <span>{item}</span>
                   </li>
                 ))}
               </ul>
@@ -83,15 +85,17 @@ export default function ServicesPage() {
         ))}
       </div>
 
-      <div className="mt-16 rounded-2xl border border-emerald-500/20 bg-emerald-500/5 p-8 text-center sm:p-12">
-        <h2 className="text-2xl font-bold text-white">Ready to collaborate on a project?</h2>
-        <p className="mx-auto mt-3 max-w-xl text-sm text-zinc-400">
+      <div className="mt-12 rounded-2xl border border-emerald-500/20 bg-emerald-500/5 p-6 text-center sm:mt-16 sm:p-12">
+        <h2 className="text-xl font-bold text-white sm:text-2xl">
+          Ready to collaborate on a project?
+        </h2>
+        <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-zinc-400">
           Let’s discuss your technical architecture, requirements, and delivery milestones.
         </p>
         <div className="mt-6">
           <Link
             href={ROUTES.BOOK}
-            className="inline-flex items-center justify-center rounded-lg bg-emerald-500 px-6 py-3 text-sm font-semibold text-zinc-950 hover:bg-emerald-400"
+            className="inline-flex min-h-[44px] touch-manipulation items-center justify-center rounded-lg bg-emerald-500 px-6 py-3 text-sm font-semibold text-zinc-950 hover:bg-emerald-400"
           >
             Schedule Discovery Call
           </Link>

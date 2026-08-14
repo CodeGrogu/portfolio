@@ -222,24 +222,24 @@ export function HeroSection() {
                     type="button"
                     onClick={handleCopy}
                     aria-label="Copy snippet to clipboard"
-                    className="rounded p-1 text-zinc-400 transition-colors hover:bg-zinc-800 hover:text-white focus:outline-none focus-visible:ring-1 focus-visible:ring-emerald-400"
+                    className="flex h-9 min-h-[36px] w-9 min-w-[36px] touch-manipulation items-center justify-center rounded-lg text-zinc-400 transition-colors hover:bg-zinc-800 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
                   >
                     {hasCopied ? (
-                      <Check className="h-3.5 w-3.5 text-emerald-400" />
+                      <Check className="h-4 w-4 text-emerald-400" />
                     ) : (
-                      <Copy className="h-3.5 w-3.5" />
+                      <Copy className="h-4 w-4" />
                     )}
                   </button>
                 </div>
               </div>
 
               {/* Tab Selector */}
-              <div className="flex gap-1 border-b border-zinc-800/60 bg-zinc-950/50 px-2 pt-2 text-xs">
+              <div className="flex gap-1 overflow-x-auto border-b border-zinc-800/60 bg-zinc-950/50 px-2 pt-2 text-xs">
                 <button
                   type="button"
                   onClick={() => setActiveTab('webgpu')}
                   className={cn(
-                    'flex items-center gap-1.5 rounded-t-lg px-3 py-1.5 font-mono text-xs transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-emerald-400',
+                    'flex min-h-[38px] shrink-0 touch-manipulation items-center gap-1.5 rounded-t-lg px-3.5 py-2 font-mono text-xs transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-emerald-400',
                     activeTab === 'webgpu'
                       ? 'border-x border-t border-zinc-700/80 bg-zinc-900 font-semibold text-emerald-400'
                       : 'text-zinc-400 hover:bg-zinc-900/40 hover:text-zinc-200',
@@ -253,7 +253,7 @@ export function HeroSection() {
                   type="button"
                   onClick={() => setActiveTab('drizzle')}
                   className={cn(
-                    'flex items-center gap-1.5 rounded-t-lg px-3 py-1.5 font-mono text-xs transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-emerald-400',
+                    'flex min-h-[38px] shrink-0 touch-manipulation items-center gap-1.5 rounded-t-lg px-3.5 py-2 font-mono text-xs transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-emerald-400',
                     activeTab === 'drizzle'
                       ? 'border-x border-t border-zinc-700/80 bg-zinc-900 font-semibold text-emerald-400'
                       : 'text-zinc-400 hover:bg-zinc-900/40 hover:text-zinc-200',
@@ -267,7 +267,7 @@ export function HeroSection() {
                   type="button"
                   onClick={() => setActiveTab('telemetry')}
                   className={cn(
-                    'flex items-center gap-1.5 rounded-t-lg px-3 py-1.5 font-mono text-xs transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-emerald-400',
+                    'flex min-h-[38px] shrink-0 touch-manipulation items-center gap-1.5 rounded-t-lg px-3.5 py-2 font-mono text-xs transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-emerald-400',
                     activeTab === 'telemetry'
                       ? 'border-x border-t border-zinc-700/80 bg-zinc-900 font-semibold text-emerald-400'
                       : 'text-zinc-400 hover:bg-zinc-900/40 hover:text-zinc-200',

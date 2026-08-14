@@ -29,9 +29,9 @@ const variantStyles: Record<ButtonVariant, string> = {
 };
 
 const sizeStyles: Record<ButtonSize, string> = {
-  sm: 'h-8 px-3 text-xs rounded-md gap-1.5',
-  md: 'h-10 px-4 text-sm rounded-lg gap-2',
-  lg: 'h-12 px-6 text-base rounded-xl gap-2.5',
+  sm: 'h-9 sm:h-8 px-3 text-xs rounded-md gap-1.5 min-h-[36px] sm:min-h-[32px]',
+  md: 'h-11 sm:h-10 px-4 text-sm rounded-lg gap-2 min-h-[44px] sm:min-h-[40px]',
+  lg: 'h-12 sm:h-12 px-6 text-base rounded-xl gap-2.5 min-h-[48px]',
 };
 
 export function buttonVariants({
@@ -44,7 +44,7 @@ export function buttonVariants({
   className?: string | undefined;
 } = {}): string {
   return cn(
-    'inline-flex items-center justify-center font-medium transition-all select-none',
+    'inline-flex items-center justify-center font-medium transition-all select-none touch-manipulation',
     'cursor-pointer disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50',
     variantStyles[variant ?? 'primary'],
     sizeStyles[size ?? 'md'],

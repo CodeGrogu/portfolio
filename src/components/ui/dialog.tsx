@@ -54,7 +54,7 @@ export function Dialog({ isOpen, onClose, title, description, children, classNam
       <div
         ref={dialogRef}
         className={cn(
-          'relative z-10 w-full max-w-lg rounded-2xl border border-zinc-700/80 bg-zinc-900/95 p-6 shadow-2xl backdrop-blur-md',
+          'relative z-10 max-h-[90dvh] w-full max-w-lg overflow-y-auto rounded-2xl border border-zinc-700/80 bg-zinc-900/95 p-6 shadow-2xl backdrop-blur-md',
           'animate-in fade-in zoom-in-95 duration-200',
           className,
         )}
@@ -74,7 +74,7 @@ export function Dialog({ isOpen, onClose, title, description, children, classNam
             type="button"
             onClick={onClose}
             aria-label="Close dialog"
-            className="rounded-lg p-1.5 text-zinc-400 hover:bg-zinc-800 hover:text-white focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:outline-none"
+            className="flex h-11 min-h-[44px] w-11 min-w-[44px] touch-manipulation items-center justify-center rounded-lg text-zinc-400 hover:bg-zinc-800 hover:text-white focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:outline-none"
           >
             <svg
               className="h-5 w-5"
