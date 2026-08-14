@@ -161,3 +161,22 @@ bun run validate   # 2. Composite quality gate (typecheck && lint && format:chec
 - **Zero Secret Exposure**: Never commit `.env`, `.env.local`, API tokens, or credentials to git.
 - **Env Validation**: Validate all environment variables at application startup with Zod (`src/lib/env.ts`).
 - **Input Sanitization & Rate Limiting**: All public mutations/endpoints must enforce rate limiting and schema validation.
+
+---
+
+## 16. Browser Verification & Visual Excellence (Playwright & Chrome DevTools MCP)
+
+- **Mandatory Live Browser Inspection**: When implementing any user-facing UI, page route, component, or 3D scene, always use Chrome DevTools MCP (`navigate_page`, `take_snapshot`, `take_screenshot`, `list_console_messages`) and Playwright to verify that the feature renders correctly in a real browser runtime.
+- **Visual Excellence Standard**: Verify that the interface visually meets the project's premium design standards (rich glassmorphism, tailored luminescent accents, responsive typography, zero layout shift, smooth transitions).
+- **Runtime Error Invariant**: Ensure zero uncaught JavaScript errors or unhandled promise rejections appear in `list_console_messages`.
+
+---
+
+## 17. Mandatory Lighthouse Auditing (100% Target Standard)
+
+- **Lighthouse Verification on Every Feature**: When implementing any page, section, or route, always run a Lighthouse audit (via Chrome DevTools MCP `lighthouse_audit` or Lighthouse CI).
+- **100% Quality Goal**: Strive to achieve 100% across all audited categories:
+  - **Accessibility (a11y)**: 100% (Zero WCAG 2.2 AA violations, accessible focus rings, aria landmarks).
+  - **Best Practices**: 100% (Modern security headers, HTTPS, clean APIs).
+  - **SEO**: 100% (Complete meta tags, structured OpenGraph, canonical URLs).
+  - **Performance**: 100% target ($\ge 95$ minimum threshold, zero render-blocking assets, sub-second LCP).

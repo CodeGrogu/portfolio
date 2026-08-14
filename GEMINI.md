@@ -112,6 +112,8 @@
 11. **Testing & Pre-Flight Verification (D9)**: Every task must execute and satisfy `bun test` and `bun run validate` (`typecheck && lint && format:check && build`) before committing/pushing.
 12. **GitHub Actions CI Quality Gate**: Automated 5-stage CI workflow (`.github/workflows/ci.yml`) protects `main`. A PR must never be merged with pending/failing checks.
 13. **Pull Request Protocol (D7 & Literal Markdown)**: Standard PR title `<type>(CV-<id>): <summary>` and 5-section body (`## Summary`, `## Linear`, `## Changes`, `## Validation`, `## Notes`). Always format PR bodies as clean, unescaped literal Markdown (real newlines and backticks, `--body-file` convention; zero escaped `\n` or `\` artifacts).
+14. **Browser & Visual Verification (Playwright & Chrome DevTools)**: Always use Chrome DevTools MCP and Playwright to verify that every user-facing feature functions correctly, has zero console errors, and visually meets the project's standard of visual excellence.
+15. **Lighthouse 100% Quality Invariant**: Always run Lighthouse audits on implemented pages and features with the explicit target of achieving 100% across Accessibility, SEO, Best Practices, and Performance ($\ge 95$ minimum threshold).
 
 ---
 
