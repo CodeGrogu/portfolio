@@ -2,15 +2,19 @@ import * as React from 'react';
 import { cn } from '@/lib/utils';
 import { Spinner } from './spinner';
 
+export type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'ghost' | 'glass' | 'glow';
+export type ButtonSize = 'sm' | 'md' | 'lg';
+
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'glass' | 'glow';
-  size?: 'sm' | 'md' | 'lg';
+  variant?: ButtonVariant;
+  size?: ButtonSize;
   isLoading?: boolean;
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
+  asChild?: boolean;
 }
 
-const variantStyles: Record<NonNullable<ButtonProps['variant']>, string> = {
+const variantStyles: Record<ButtonVariant, string> = {
   primary:
     'bg-emerald-500 text-zinc-950 font-semibold hover:bg-emerald-400 focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 shadow-sm active:scale-[0.98]',
   secondary:
@@ -24,11 +28,29 @@ const variantStyles: Record<NonNullable<ButtonProps['variant']>, string> = {
   glow: 'bg-gradient-to-r from-emerald-500 to-cyan-500 text-zinc-950 font-bold hover:from-emerald-400 hover:to-cyan-400 shadow-[0_0_20px_rgba(16,185,129,0.35)] hover:shadow-[0_0_25px_rgba(6,182,212,0.5)] focus-visible:ring-2 focus-visible:ring-cyan-400 active:scale-[0.98]',
 };
 
-const sizeStyles: Record<NonNullable<ButtonProps['size']>, string> = {
+const sizeStyles: Record<ButtonSize, string> = {
   sm: 'h-8 px-3 text-xs rounded-md gap-1.5',
   md: 'h-10 px-4 text-sm rounded-lg gap-2',
   lg: 'h-12 px-6 text-base rounded-xl gap-2.5',
 };
+
+export function buttonVariants({
+  variant = 'primary',
+  size = 'md',
+  className,
+}: {
+  variant?: ButtonVariant | undefined;
+  size?: ButtonSize | undefined;
+  className?: string | undefined;
+} = {}): string {
+  return cn(
+    'inline-flex items-center justify-center font-medium transition-all select-none',
+    'cursor-pointer disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50',
+    variantStyles[variant ?? 'primary'],
+    sizeStyles[size ?? 'md'],
+    className,
+  );
+}
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
@@ -39,25 +61,38 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       isLoading = false,
       leftIcon,
       rightIcon,
+      asChild = false,
       disabled,
       children,
       ...props
     },
     ref,
   ) => {
+    const combinedClassName = buttonVariants({ variant, size, className });
+
+    if (asChild && React.isValidElement(children)) {
+      const child = children as React.ReactElement<{
+        className?: string;
+        children?: React.ReactNode;
+      }>;
+      return React.cloneElement(child, {
+        className: cn(combinedClassName, child.props.className),
+        children: (
+          <>
+            {isLoading ? (
+              <Spinner size={size === 'sm' ? 'sm' : 'md'} className="mr-1" />
+            ) : (
+              leftIcon && <span className="inline-flex shrink-0">{leftIcon}</span>
+            )}
+            {child.props.children}
+            {!isLoading && rightIcon && <span className="inline-flex shrink-0">{rightIcon}</span>}
+          </>
+        ),
+      });
+    }
+
     return (
-      <button
-        ref={ref}
-        disabled={disabled || isLoading}
-        className={cn(
-          'inline-flex items-center justify-center font-medium transition-all select-none',
-          'cursor-pointer disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50',
-          variantStyles[variant],
-          sizeStyles[size],
-          className,
-        )}
-        {...props}
-      >
+      <button ref={ref} disabled={disabled || isLoading} className={combinedClassName} {...props}>
         {isLoading ? (
           <Spinner size={size === 'sm' ? 'sm' : 'md'} className="mr-1" />
         ) : (

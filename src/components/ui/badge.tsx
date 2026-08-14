@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils';
 export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
   variant?: 'default' | 'emerald' | 'cyan' | 'indigo' | 'violet' | 'amber' | 'outline';
   dot?: boolean;
+  withPulse?: boolean;
 }
 
 const variantStyles: Record<NonNullable<BadgeProps['variant']>, string> = {
@@ -30,9 +31,12 @@ export function Badge({
   className,
   variant = 'default',
   dot = false,
+  withPulse = false,
   children,
   ...props
 }: BadgeProps) {
+  const showDot = dot || withPulse;
+
   return (
     <span
       className={cn(
@@ -42,8 +46,15 @@ export function Badge({
       )}
       {...props}
     >
-      {dot && (
-        <span className={cn('h-1.5 w-1.5 rounded-full', dotColors[variant])} aria-hidden="true" />
+      {showDot && (
+        <span
+          className={cn(
+            'h-1.5 w-1.5 shrink-0 rounded-full',
+            dotColors[variant],
+            withPulse && 'animate-pulse',
+          )}
+          aria-hidden="true"
+        />
       )}
       {children}
     </span>
