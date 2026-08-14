@@ -94,19 +94,19 @@ export default async function ProjectDetailPage({ params }: ProjectDetailProps) 
   const breadcrumbs = getBreadcrumbs(`/projects/${slug}`);
 
   return (
-    <article className="mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+    <article className="mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-20 lg:px-8">
       {/* Breadcrumbs */}
       <nav aria-label="Breadcrumbs" className="mb-8">
-        <ol className="flex items-center space-x-2 text-sm text-zinc-400">
+        <ol className="flex flex-wrap items-center gap-1.5 text-xs text-zinc-400 sm:text-sm">
           {breadcrumbs.map((crumb, idx) => (
             <li key={crumb.href} className="flex items-center">
-              {idx > 0 && <span className="mx-2 text-zinc-600">/</span>}
+              {idx > 0 && <span className="mr-1.5 text-zinc-600">/</span>}
               {crumb.isCurrent ? (
                 <span aria-current="page" className="font-semibold text-emerald-400">
                   {crumb.label}
                 </span>
               ) : (
-                <Link href={crumb.href} className="hover:text-white">
+                <Link href={crumb.href} className="touch-manipulation hover:text-white">
                   {crumb.label}
                 </Link>
               )}
@@ -127,7 +127,9 @@ export default async function ProjectDetailPage({ params }: ProjectDetailProps) 
         <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
           {project.title}
         </h1>
-        <p className="mt-4 text-lg text-zinc-300">{project.description}</p>
+        <p className="mt-4 text-base leading-relaxed text-zinc-300 sm:text-lg">
+          {project.description}
+        </p>
 
         <div className="mt-6 flex flex-wrap gap-2">
           {project.techStack.map((tech) => (
@@ -142,7 +144,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailProps) 
       </header>
 
       {/* Content */}
-      <div className="mt-10 space-y-12 text-zinc-300">
+      <div className="mt-10 space-y-10 text-zinc-300 sm:space-y-12">
         <section aria-labelledby="overview-heading">
           <h2 id="overview-heading" className="text-xl font-bold text-white">
             Project Overview
@@ -164,16 +166,16 @@ export default async function ProjectDetailPage({ params }: ProjectDetailProps) 
         </section>
       </div>
 
-      <div className="mt-16 flex justify-between border-t border-zinc-800 pt-8">
+      <div className="mt-12 flex flex-col items-stretch justify-between gap-4 border-t border-zinc-800 pt-8 sm:mt-16 sm:flex-row sm:items-center">
         <Link
           href={ROUTES.PROJECTS}
-          className="text-sm font-semibold text-emerald-400 hover:text-emerald-300"
+          className="inline-flex min-h-[44px] touch-manipulation items-center text-sm font-semibold text-emerald-400 hover:text-emerald-300"
         >
           &larr; Back to all projects
         </Link>
         <Link
           href={ROUTES.BOOK}
-          className="text-sm font-semibold text-emerald-400 hover:text-emerald-300"
+          className="inline-flex min-h-[44px] touch-manipulation items-center justify-center rounded-lg bg-emerald-500 px-5 py-2.5 text-sm font-semibold text-zinc-950 hover:bg-emerald-400"
         >
           Discuss a similar project &rarr;
         </Link>

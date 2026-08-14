@@ -57,7 +57,7 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+    <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-20 lg:px-8">
       <div className="max-w-3xl">
         <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
           About CodeGrogu
@@ -67,7 +67,7 @@ export default function AboutPage() {
         </p>
       </div>
 
-      <div className="mt-12 space-y-8 text-base leading-relaxed text-zinc-300">
+      <div className="mt-10 space-y-6 text-base leading-relaxed text-zinc-300 sm:mt-12 sm:space-y-8">
         <p>
           I am a software architect and creative developer focused on bridging the gap between
           rigorous systems engineering and immersive, real-time spatial web experiences.
@@ -81,7 +81,10 @@ export default function AboutPage() {
       </div>
 
       {/* Stack Section */}
-      <section aria-labelledby="stack-heading" className="mt-16 border-t border-zinc-800 pt-12">
+      <section
+        aria-labelledby="stack-heading"
+        className="mt-12 border-t border-zinc-800 pt-10 sm:mt-16 sm:pt-12"
+      >
         <h2 id="stack-heading" className="text-2xl font-bold text-white">
           Technical Stack & Capabilities
         </h2>
@@ -91,8 +94,8 @@ export default function AboutPage() {
 
         <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
           {stackCategories.map((group, idx) => (
-            <div key={idx} className="rounded-xl border border-zinc-800 bg-zinc-900/40 p-6">
-              <h3 className="text-sm font-semibold tracking-wider text-emerald-400 uppercase">
+            <div key={idx} className="rounded-xl border border-zinc-800 bg-zinc-900/40 p-5 sm:p-6">
+              <h3 className="text-xs font-semibold tracking-wider text-emerald-400 uppercase sm:text-sm">
                 {group.category}
               </h3>
               <div className="mt-4 flex flex-wrap gap-2">
@@ -111,16 +114,16 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <div className="mt-16 flex items-center justify-between border-t border-zinc-800 pt-8">
+      <div className="mt-12 flex flex-col items-stretch justify-between gap-4 border-t border-zinc-800 pt-8 sm:mt-16 sm:flex-row sm:items-center">
         <Link
           href={ROUTES.PROJECTS}
-          className="text-sm font-semibold text-emerald-400 hover:text-emerald-300"
+          className="inline-flex min-h-[44px] touch-manipulation items-center text-sm font-semibold text-emerald-400 hover:text-emerald-300"
         >
           &larr; View Portfolio Projects
         </Link>
         <Link
           href={ROUTES.BOOK}
-          className="inline-flex items-center justify-center rounded-lg bg-emerald-500 px-4 py-2 text-sm font-semibold text-zinc-950 hover:bg-emerald-400"
+          className="inline-flex min-h-[44px] touch-manipulation items-center justify-center rounded-lg bg-emerald-500 px-5 py-2.5 text-sm font-semibold text-zinc-950 hover:bg-emerald-400"
         >
           Book Consultation &rarr;
         </Link>

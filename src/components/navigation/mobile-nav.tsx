@@ -66,22 +66,22 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
     >
       {/* Backdrop overlay */}
       <div
-        className="animate-in fade-in fixed inset-0 bg-black/80 backdrop-blur-sm transition-opacity duration-300"
+        className="animate-in fade-in fixed inset-0 touch-manipulation bg-black/80 backdrop-blur-sm transition-opacity duration-300"
         onClick={onClose}
         aria-hidden="true"
       />
 
-      {/* Drawer panel */}
+      {/* Drawer panel with safe area inset and touch manipulation */}
       <div
         ref={drawerRef}
-        className="animate-in slide-in-from-right fixed inset-y-0 right-0 z-50 flex w-full max-w-sm flex-col border-l border-zinc-800 bg-zinc-950/95 p-6 shadow-2xl backdrop-blur-xl transition-transform duration-300"
+        className="animate-in slide-in-from-right fixed inset-y-0 right-0 z-50 flex h-full max-h-dvh w-full max-w-sm flex-col border-l border-zinc-800 bg-zinc-950/95 p-6 pt-[max(1.5rem,env(safe-area-inset-top))] pb-[max(1.5rem,env(safe-area-inset-bottom))] shadow-2xl backdrop-blur-xl transition-transform duration-300"
       >
         {/* Header */}
         <div className="flex items-center justify-between border-b border-zinc-800/80 pb-5">
           <Link
             href={ROUTES.HOME}
             onClick={onClose}
-            className="flex items-center gap-2 text-base font-bold tracking-tight text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
+            className="flex touch-manipulation items-center gap-2 text-base font-bold tracking-tight text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
           >
             <span className="flex h-7 w-7 items-center justify-center rounded-lg border border-emerald-500/30 bg-emerald-500/10 text-emerald-400">
               <Sparkles className="h-4 w-4" />
@@ -96,7 +96,7 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
             type="button"
             onClick={onClose}
             aria-label="Close navigation menu"
-            className="rounded-lg p-2 text-zinc-400 transition-colors hover:bg-zinc-800 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
+            className="flex h-11 min-h-[44px] w-11 min-w-[44px] touch-manipulation items-center justify-center rounded-lg text-zinc-400 transition-colors hover:bg-zinc-800 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
           >
             <X className="h-5 w-5" />
           </button>
@@ -114,7 +114,10 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
         </div>
 
         {/* Navigation links */}
-        <nav aria-label="Mobile Primary Navigation" className="mt-6 flex-1 space-y-1">
+        <nav
+          aria-label="Mobile Primary Navigation"
+          className="mt-6 flex-1 space-y-1 overflow-y-auto"
+        >
           {NAV_LINKS.map((item) => {
             const isActive =
               item.href === ROUTES.HOME ? pathname === ROUTES.HOME : pathname.startsWith(item.href);
@@ -126,9 +129,9 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
                 onClick={onClose}
                 aria-current={isActive ? 'page' : undefined}
                 className={cn(
-                  'group flex items-center justify-between rounded-xl px-4 py-3 text-base font-medium transition-all',
+                  'group flex min-h-[48px] touch-manipulation items-center justify-between rounded-xl px-4 py-3 text-base font-medium transition-all',
                   isActive
-                    ? 'border border-emerald-500/30 bg-emerald-500/10 text-emerald-400'
+                    ? 'border border-emerald-500/30 bg-emerald-500/10 font-semibold text-emerald-400'
                     : 'text-zinc-300 hover:bg-zinc-900 hover:text-white',
                 )}
               >
@@ -150,7 +153,7 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
             asChild
             variant="glow"
             size="lg"
-            className="w-full justify-center text-sm font-semibold"
+            className="w-full touch-manipulation justify-center text-sm font-semibold"
           >
             <Link href={ROUTES.BOOK} onClick={onClose}>
               Book Consultation

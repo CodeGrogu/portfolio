@@ -49,7 +49,7 @@ export function Header() {
           <div className="flex items-center gap-6">
             <Link
               href={ROUTES.HOME}
-              className="group flex items-center gap-2 rounded-lg px-1 py-0.5 text-lg font-bold tracking-tight text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
+              className="group flex touch-manipulation items-center gap-2 rounded-lg px-1 py-0.5 text-lg font-bold tracking-tight text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
             >
               <span className="flex h-7 w-7 items-center justify-center rounded-lg border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 transition-colors group-hover:border-emerald-400/60">
                 <Sparkles className="h-4 w-4" />
@@ -80,7 +80,7 @@ export function Header() {
                   href={item.href}
                   aria-current={isActive ? 'page' : undefined}
                   className={cn(
-                    'relative rounded-lg px-3.5 py-2 text-sm font-medium transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400',
+                    'relative touch-manipulation rounded-lg px-3.5 py-2 text-sm font-medium transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400',
                     isActive
                       ? 'bg-emerald-500/10 font-semibold text-emerald-400'
                       : 'text-zinc-400 hover:bg-zinc-800/50 hover:text-white',
@@ -106,14 +106,14 @@ export function Header() {
               </Button>
             </div>
 
-            {/* Mobile Hamburger Button */}
+            {/* Mobile Hamburger Button with 44x44 WCAG touch target */}
             <button
               type="button"
               onClick={handleOpenMobile}
               aria-label="Open navigation menu"
               aria-expanded={isMobileOpen}
               aria-controls="mobile-navigation-drawer"
-              className="inline-flex items-center justify-center rounded-lg p-2 text-zinc-400 transition-colors hover:bg-zinc-800 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 md:hidden"
+              className="inline-flex h-11 min-h-[44px] w-11 min-w-[44px] touch-manipulation items-center justify-center rounded-lg p-2.5 text-zinc-400 transition-colors hover:bg-zinc-800 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 md:hidden"
             >
               <Menu className="h-6 w-6" />
             </button>
