@@ -1,7 +1,9 @@
 import Link from 'next/link';
-import { ArrowRight, Cpu, Layers, Zap } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { ROUTES } from '@/lib/routes';
 import { HeroSection } from '@/components/hero';
+import { ServicesSection } from '@/components/services';
+import { AboutSection } from '@/components/about';
 import { Container, Section } from '@/components/ui/container';
 import {
   Card,
@@ -50,106 +52,11 @@ export default function HomePage() {
       {/* Hero Section */}
       <HeroSection />
 
-      {/* Core Capabilities Section */}
-      <Section
-        id="capabilities"
-        className="border-t border-zinc-800/80 bg-zinc-950/60 py-20 backdrop-blur-sm"
-      >
-        <Container>
-          <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
-            <div>
-              <div className="inline-flex items-center gap-2">
-                <Badge variant="emerald" className="text-xs font-semibold">
-                  Engineering Capabilities
-                </Badge>
-              </div>
-              <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
-                Precision Technical Disciplines
-              </h2>
-              <p className="mt-2 max-w-2xl text-base text-zinc-400">
-                High-fidelity technical foundations built for speed, resilience, and uncompromised
-                accessibility.
-              </p>
-            </div>
-            <Button asChild variant="outline" size="sm">
-              <Link href={ROUTES.SERVICES}>
-                All Capabilities <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-          </div>
+      {/* Services Section */}
+      <ServicesSection />
 
-          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
-            <Card variant="glow" isInteractive className="p-2">
-              <CardHeader>
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-emerald-500/30 bg-emerald-500/10 text-emerald-400">
-                  <Cpu className="h-6 w-6" />
-                </div>
-                <CardTitle className="mt-4 text-xl">WebGPU & Three.js</CardTitle>
-                <CardDescription className="text-sm leading-relaxed text-zinc-400">
-                  GPU-first 3D scenes, custom WGSL/GLSL shaders, Draco/Meshopt asset compression,
-                  and 60fps real-time spatial interfaces.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-2 text-xs text-zinc-400">
-                <div className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                  <span>Hardware-accelerated compute shaders</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                  <span>Device-aware quality tier degradation</span>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card variant="glow" isInteractive className="p-2">
-              <CardHeader>
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-cyan-500/30 bg-cyan-500/10 text-cyan-400">
-                  <Layers className="h-6 w-6" />
-                </div>
-                <CardTitle className="mt-4 text-xl">Full-Stack Architecture</CardTitle>
-                <CardDescription className="text-sm leading-relaxed text-zinc-400">
-                  Next.js 16 App Router, React 19 Server Components, Neon Serverless PostgreSQL, and
-                  type-safe Drizzle ORM backends.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-2 text-xs text-zinc-400">
-                <div className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
-                  <span>Serialized transaction slot reservation</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
-                  <span>Zod runtime schema validation</span>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card variant="glow" isInteractive className="p-2">
-              <CardHeader>
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-indigo-500/30 bg-indigo-500/10 text-indigo-400">
-                  <Zap className="h-6 w-6" />
-                </div>
-                <CardTitle className="mt-4 text-xl">Performance & A11y</CardTitle>
-                <CardDescription className="text-sm leading-relaxed text-zinc-400">
-                  Sub-second page loads, WCAG 2.2 AA accessibility, reduced-motion fallbacks, and
-                  resilient Core Web Vitals optimization.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-2 text-xs text-zinc-400">
-                <div className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-indigo-400" />
-                  <span>100% Lighthouse audit standards</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-indigo-400" />
-                  <span>Zero Cumulative Layout Shift (CLS: 0.00)</span>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </Container>
-      </Section>
+      {/* About & Philosophy Section */}
+      <AboutSection />
 
       {/* Featured Projects Highlight Section */}
       <Section className="border-t border-zinc-800/80 py-24">

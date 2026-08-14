@@ -59,8 +59,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
-      <body className="flex min-h-dvh min-h-screen flex-col overflow-x-hidden bg-[var(--background)] font-sans text-[var(--foreground)] antialiased">
+    <html
+      lang="en"
+      data-scroll-behavior="smooth"
+      className={`${inter.variable} ${jetbrainsMono.variable}`}
+    >
+      <body className="flex min-h-dvh flex-col overflow-x-hidden bg-[var(--background)] font-sans text-[var(--foreground)] antialiased">
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-emerald-500 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-zinc-950 focus:ring-2 focus:ring-emerald-400 focus:outline-none"
