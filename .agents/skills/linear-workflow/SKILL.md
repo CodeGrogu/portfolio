@@ -22,19 +22,19 @@ This skill governs issue tracking, milestone alignment, status transitions, and 
 
 ### Milestones
 
-- **Foundation** (`26b61743-861f-4a1c-9278-65911090ec3a`) — Target: 2026-08-21
-- **Core Experience** (`ad3f3f93-4645-4640-9d70-ae58972a317c`) — Target: 2026-09-04
-- **Web3D** (`f55343ae-1696-4917-bd33-aaa6ce8b57e6`) — Target: 2026-09-25
-- **Full-Stack Systems** (`50b5d985-c0c1-42f4-8348-3c6a28053e14`) — Target: 2026-10-16
-- **Production Hardening** (`547e687f-bcb1-4fc0-bf53-3d083240800c`) — Target: 2026-10-30
-- **Launch** (`48af0f67-2f1e-4230-8683-8c429d5e392e`) — Target: 2026-11-13
+- **Foundation** (`26b61743-861f-4a1c-9278-65911090ec3a`) - Target: 2026-08-21
+- **Core Experience** (`ad3f3f93-4645-4640-9d70-ae58972a317c`) - Target: 2026-09-04
+- **Web3D** (`f55343ae-1696-4917-bd33-aaa6ce8b57e6`) - Target: 2026-09-25
+- **Full-Stack Systems** (`50b5d985-c0c1-42f4-8348-3c6a28053e14`) - Target: 2026-10-16
+- **Production Hardening** (`547e687f-bcb1-4fc0-bf53-3d083240800c`) - Target: 2026-10-30
+- **Launch** (`48af0f67-2f1e-4230-8683-8c429d5e392e`) - Target: 2026-11-13
 
 ### Active Execution Cycle
 
-- **Cycle Name**: `Foundation — Cycle 1` (Cycle `1`, ID: `e07214a7-bd5b-42e3-83f7-ad5864052297`)
-- **Period**: `2026-08-17` to `2026-08-21`
-- **Workload**: 4 tasks, 13 story points (`CV-6` $\rightarrow$ `CV-7` $\rightarrow$ `CV-14` $\rightarrow$ `CV-15`)
-- **Protocol**: Sequential leaf execution. Only 1 leaf task active in `In Progress` at any time.
+- **Cycle Name**: `Core Experience - Cycle 2` (Cycle `2`, ID: `ce5d940f-0900-4845-b567-d4612e7ff59e`)
+- **Period**: `2026-08-24` to `2026-09-04`
+- **Workload**: 9 tasks, 37 story points
+- **Protocol**: Single leaf execution following canonical branching DAG. Only 1 task active in `In Progress` at any time.
 
 ---
 

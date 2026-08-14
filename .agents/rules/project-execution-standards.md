@@ -124,6 +124,8 @@ This document defines the strict, certified engineering standards for the **Code
 - **Pull Requests (D7)**: Every PR must use the standard template linking `CV-<id>`.
 - **Literal Markdown in PR Descriptions (Critical Tooling Rule)**:
   Always construct PR bodies using unescaped, literal multiline Markdown (with real newlines and unescaped backticks). Never pass JSON-escaped string artifacts like `\n` or `\` backticks. When using `gh pr create` or `gh pr edit`, use `--body-file <file>` or multiline heredocs to ensure GitHub renders genuine Markdown.
+- **Hyphens Only Standard (No Em Dashes Rule)**:
+  Never use em dashes (`—`) anywhere in code, markdown, comments, git commit messages, PR titles, PR bodies, or Linear descriptions. Always use standard hyphens (`-`).
 
 ---
 
