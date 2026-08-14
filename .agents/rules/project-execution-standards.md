@@ -121,8 +121,9 @@ This document defines the strict, certified engineering standards for the **Code
 - **Protected Main**: Never commit or push directly to `main`.
 - **Linear Branch Alignment**: Work strictly on the branch named in the Linear issue:
   `boiihertz/cv-<id>-<slug>`
-- **Commit Formatting**: `<type>(CV-<id>): <imperative summary>`
 - **Pull Requests (D7)**: Every PR must use the standard template linking `CV-<id>`.
+- **Literal Markdown in PR Descriptions (Critical Tooling Rule)**:
+  Always construct PR bodies using unescaped, literal multiline Markdown (with real newlines and unescaped backticks). Never pass JSON-escaped string artifacts like `\n` or `\` backticks. When using `gh pr create` or `gh pr edit`, use `--body-file <file>` or multiline heredocs to ensure GitHub renders genuine Markdown.
 
 ---
 

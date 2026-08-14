@@ -126,10 +126,38 @@ This skill defines the battle-tested, certified end-to-end execution loop for im
    git push -u origin <branchName>
    ```
 
-2. **Open Pull Request (D7 Template)**:
+2. **Open Pull Request (D7 Template & Literal Markdown)**:
+   Always use unescaped literal multiline Markdown. Use `--body-file` or GitHub API to ensure pristine formatting:
 
    ```bash
-   gh pr create --title "<type>(CV-<id>): <summary>" --body "## Summary`n...`n`n## Linear`nCV-<id>`n`n## Changes`n- ...`n`n## Validation`n- bun test: Passed`n- bun run validate: Passed`n`n## Notes`n..."
+   # Create temporary body file or use script with literal multiline Markdown:
+   gh pr create --title "<type>(CV-<id>): <summary>" --body-file ".github/temp_pr_body.md"
+   ```
+
+   _Body format_:
+
+   ```markdown
+   ## Summary
+
+   Clear summary of the implementation.
+
+   ## Linear
+
+   CV-<id>
+
+   ## Changes
+
+   - Add `feature` in `src/...`
+   - Update `component`
+
+   ## Validation
+
+   - `bun test`: Passed (6/6)
+   - `bun run validate`: Passed (0 errors)
+
+   ## Notes
+
+   Acceptance criteria satisfied.
    ```
 
 3. **Transition to `In Review`**:
