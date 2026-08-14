@@ -18,13 +18,19 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
   const pathname = usePathname();
   const drawerRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const prevPathnameRef = useRef(pathname);
 
-  // Close on route change
+  // Close only when pathname actually changes while open
   useEffect(() => {
-    onClose();
-  }, [pathname, onClose]);
+    if (prevPathnameRef.current !== pathname) {
+      prevPathnameRef.current = pathname;
+      if (isOpen) {
+        onClose();
+      }
+    }
+  }, [pathname, isOpen, onClose]);
 
-  // Handle ESC key to close
+  // Handle ESC key to close and body scroll lock
   useEffect(() => {
     if (!isOpen) return;
 
@@ -56,7 +62,7 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
       role="dialog"
       aria-modal="true"
       aria-label="Mobile Navigation Menu"
-      className="fixed inset-0 z-50 lg:hidden"
+      className="fixed inset-0 z-50 md:hidden"
     >
       {/* Backdrop overlay */}
       <div

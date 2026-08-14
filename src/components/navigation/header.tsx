@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, Sparkles } from 'lucide-react';
@@ -14,6 +14,14 @@ export function Header() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+
+  const handleOpenMobile = useCallback(() => {
+    setIsMobileOpen(true);
+  }, []);
+
+  const handleCloseMobile = useCallback(() => {
+    setIsMobileOpen(false);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -101,7 +109,7 @@ export function Header() {
             {/* Mobile Hamburger Button */}
             <button
               type="button"
-              onClick={() => setIsMobileOpen(true)}
+              onClick={handleOpenMobile}
               aria-label="Open navigation menu"
               aria-expanded={isMobileOpen}
               aria-controls="mobile-navigation-drawer"
@@ -114,7 +122,7 @@ export function Header() {
       </header>
 
       {/* Mobile Navigation Drawer */}
-      <MobileNav isOpen={isMobileOpen} onClose={() => setIsMobileOpen(false)} />
+      <MobileNav isOpen={isMobileOpen} onClose={handleCloseMobile} />
     </>
   );
 }
