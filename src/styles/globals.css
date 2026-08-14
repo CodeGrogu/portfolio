@@ -4,24 +4,43 @@
   :root {
     --background: #090a0f;
     --foreground: #f0f2f5;
+    --surface: #12141c;
+    --surface-hover: #181b26;
+    --surface-border: #1e2230;
     --card: #12141c;
     --card-foreground: #f0f2f5;
     --popover: #12141c;
     --popover-foreground: #f0f2f5;
-    --primary: #6366f1;
-    --primary-foreground: #ffffff;
+
+    /* Brand & Accent Tokens */
+    --primary: #10b981;
+    --primary-hover: #059669;
+    --primary-foreground: #090a0f;
+    --accent-cyan: #06b6d4;
+    --accent-indigo: #6366f1;
+    --accent-violet: #8b5cf6;
+    --accent-amber: #f59e0b;
+
+    /* Secondary & Muted */
     --secondary: #1e2230;
+    --secondary-hover: #262b3d;
     --secondary-foreground: #94a3b8;
     --muted: #1e2230;
     --muted-foreground: #64748b;
-    --accent: #38bdf8;
-    --accent-foreground: #090a0f;
-    --destructive: #ef4444;
-    --destructive-foreground: #ffffff;
-    --border: #262b3d;
-    --input: #262b3d;
-    --ring: #6366f1;
-    --radius: 0.75rem;
+    --border: #1e2230;
+    --input: #1e2230;
+    --ring: #10b981;
+
+    /* Glassmorphism Tokens */
+    --glass-bg: rgba(18, 20, 28, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-glow: rgba(16, 185, 129, 0.15);
+
+    --radius-sm: 0.375rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    --radius-2xl: 1.5rem;
   }
 }
 
@@ -47,4 +66,29 @@ body {
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090a0f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e2230;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2e344a;
+}
+
+/* High Contrast Focus Invariant */
+:focus-visible {
+  outline: 2px solid #10b981;
+  outline-offset: 2px;
 }
