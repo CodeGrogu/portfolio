@@ -134,21 +134,26 @@ This document defines the strict, certified engineering standards for the **Code
 
 ---
 
-## 13. Testing & Baseline Verification (D9)
+## 13. Testing & Pre-Flight Verification (D9)
 
-Every task must satisfy the 5 baseline verification checks before PR merge:
+Every task must execute and satisfy the pre-flight verification checks locally before pushing or opening a PR:
 
 ```bash
-bun install        # Clean dependency resolution
-bun run dev        # Development server verification
-bun run typecheck  # Strict TypeScript compilation
-bun run lint       # Linting & code hygiene
-bun run build      # Production bundle optimization
+bun test           # 1. Automated unit & schema test suite
+bun run validate   # 2. Composite quality gate (typecheck && lint && format:check && build)
 ```
 
 ---
 
-## 14. Security & Secrets Hardening
+## 14. GitHub Actions CI Quality Gate Invariant
+
+- Every PR automatically triggers the 5-stage GitHub Actions CI workflow (`.github/workflows/ci.yml`).
+- **Zero Merge on Failure**: A PR must **never** be merged if CI checks are failing or pending. All checks (`gh pr checks <pr_number>`) must report `pass`.
+- **Environment Mock Synchronization**: Any new environment variable added to `src/lib/env.ts` must have a corresponding mock value in `.github/workflows/ci.yml` so production builds succeed in CI.
+
+---
+
+## 15. Security & Secrets Hardening
 
 - **Zero Secret Exposure**: Never commit `.env`, `.env.local`, API tokens, or credentials to git.
 - **Env Validation**: Validate all environment variables at application startup with Zod (`src/lib/env.ts`).
